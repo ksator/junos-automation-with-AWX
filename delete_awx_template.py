@@ -3,7 +3,7 @@ Description: use this script to make a REST call to AWX in order to delete an AW
 '''
 '''
 Usage: 
-$ python AWX/delete_awx_template.py 
+$ python delete_awx_template.py 
 ```
 
 import requests
