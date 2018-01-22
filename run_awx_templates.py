@@ -3,14 +3,14 @@ Description: use this script to make a REST call to AWX in order to run an AWX t
 '''
 '''
 usage: 
-$ python AWX/run_awx_templates.py <template_name>
+$ python run_awx_templates.py <template_name>
 
 example: 
-$ python AWX/run_awx_templates.py wrong_template_name
+$ python run_awx_templates.py wrong_template_name
 there is a problem with that template
 
 example: 
-$ python AWX/run_awx_templates.py valid_template_name
+$ python run_awx_templates.py valid_template_name
 waiting for the job to complete ... 
 still waiting for the job to complete ...
 still waiting for the job to complete ...
