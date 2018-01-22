@@ -3,7 +3,7 @@ Description: use this script to make a REST call to AWX in order to create AWX t
 '''
 '''
 Usage: 
-$ python AWX/configure_awx_templates.py 
+$ python configure_awx_templates.py 
 run_pb.check.lldp.yml template has been created
 run_pb.check.bgp.yml template has been created
 run_pb.check.interfaces.yml template has been created
