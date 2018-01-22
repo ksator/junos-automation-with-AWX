@@ -3,7 +3,7 @@ Description: use this script to make a REST call to AWX in order to delete all A
 '''
 '''
 Usage: 
-$ python AWX/delete_awx_templates.py 
+$ python delete_awx_templates.py 
 '''
 
 import requests
