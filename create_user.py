@@ -1,4 +1,6 @@
-# this rest call creates an AWX user
+# this script makes a rest call to create an AWX user
+# usage: python create_user.py
+
 import requests
 from requests.auth import HTTPBasicAuth
 import json
