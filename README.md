@@ -1,15 +1,28 @@
 # About AWX
 
+AWX is Ansible Tower open sourced.  
+
+you can it if you want to consume your ansible playbooks with: 
+- GUI
+- REST API
+- users authentication and permissions. 
+
 [**About AWX**](https://www.ansible.com/products/awx-project/faq)  
+
 [**AWX REST API guide**](http://docs.ansible.com/ansible-tower/2.3.0/html/towerapi/index.html)  
-AWX GUI: http://localhost/  
-You can visit the AWX REST API in a web browser at http://localhost/api/v2/  
+
+You can visit the AWX REST API with a web browser: http://<AWX_IP_ADDRESS>/api/v2/  
 
 # About this repo  
 
-This repo is used to configure AWX and to consume it with its REST API.  
+This repo is about using automation to configure and to consume AWX.  
+It uses Python scripts and YAML variables. Python makes REST calls to AWX.   
 
 # How to use this repo 
+
+The file [**variable.yml**](variable.yml) has variables. You need to edit it to indicates details such as: 
+- The IP address of your AWX  
+- 
 
 ```
 vi variable.yml
