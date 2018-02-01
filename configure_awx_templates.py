@@ -47,11 +47,11 @@ for item in playbook_list:
      "ask_variables_on_launch": False,
      "ask_verbosity_on_launch": True
  }
- rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
- # print rest_call.status_code
- if rest_call.status_code != 201: 
-     print 'something went wrong with template for playbook ' + item
- else: 
-     print 'run_' + item + ' template has been created'
- # print rest_call.json()
+  rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
+  # print rest_call.status_code
+  if rest_call.status_code != 201: 
+      print 'something went wrong with template for playbook ' + item
+  else: 
+      print 'run_' + item + ' template has been created'
+  # print rest_call.json()
 

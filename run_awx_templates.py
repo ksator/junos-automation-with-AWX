@@ -40,7 +40,7 @@ payload = {
     }
 }
 template_name = sys.argv[1]
-url = 'http://192.168.233.136/api/v2/job_templates/' + template_name + '/launch/'
+url = 'http://192.168.233.142/api/v2/job_templates/' + template_name + '/launch/'
 rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
 
 # print 'rest call http response code is ' + str(rest_call.status_code)
@@ -54,7 +54,7 @@ time.sleep(15)
 
 # print 'job that have the details for the previous rest call is ' + str(rest_call.json()['job'])
 # rest call to get the status of the previous template execution
-url='http://192.168.233.136/api/v2/jobs/' + str(rest_call.json()["job"])
+url='http://192.168.233.142/api/v2/jobs/' + str(rest_call.json()["job"])
 headers = { 'Accept' : 'application/json' }
 status=requests.get(url, auth=(authuser, authpwd), headers=headers)
 
