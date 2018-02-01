@@ -1,13 +1,14 @@
 # About AWX
 
 AWX is Ansible Tower open sourced.  
-
-you can it if you want to consume your ansible playbooks with: 
+You can it if you want to consume your ansible playbooks with: 
 - GUI
 - REST API
 - users authentication and permissions. 
 
 [**About AWX**](https://www.ansible.com/products/awx-project/faq)  
+
+# About AWX REST API
 
 [**AWX REST API guide**](http://docs.ansible.com/ansible-tower/2.3.0/html/towerapi/index.html)  
 
