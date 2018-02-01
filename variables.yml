@@ -1,30 +1,57 @@
 ---
+# awx ip @
 awx: 
  ip: 192.168.233.142
 
+# awx organization you want to create
 organization: 
  name: "Juniper"
 
+# awx team you want to create. The below team belongs to the above organization
 team:
  name: "automation"
 
+# awx user you want to create. The below user belongs to the above team
 user: 
  username: "ksator"
  first_name: "khelil"
  last_name: "sator"
  password: "AWXpassword"
 
+# awx project you want to create. The below project belongs to the above organization
 project: 
  name: "Junos automation"
  git_url: "https://github.com/ksator/lab_management.git"
 
+# credentials for AWX to connect to junos devices. The below credentials belongs to the above organization
 credentials: 
  name: "junos"
  username: "lab"
  password: "jnpr123"
 
+# awx inventory you want to create. 
+# indicate which file you want to use as source of the AWX inventory. 
+# The below inventory belongs to the above organization
 inventory: 
  name: "junos_lab"
  file: "hosts"
+
+# awx templates you want to create. 
+# indicate the list of playbooks you want to use when creating equivalent awx templates. 
+# The below playbook belongs to the above source 
+playbooks: 
+ - 'pb.check.lldp.yml'
+ - 'pb.check.bgp.yml'
+ - 'pb.check.interfaces.yml'
+ - 'pb.check.vlans.yml'
+ - 'pb.check.lldp.json.yml'
+ - 'pb.configure.golden.yml'
+ - 'pb.configure.telemetry.yml'
+ - 'pb.rollback.yml'
+ - 'pb.print.facts.yml'
+ - 'pb.check.all.yml'
+ - 'pb.check.ports.availability.yml'
+ 
+ 
 
 
