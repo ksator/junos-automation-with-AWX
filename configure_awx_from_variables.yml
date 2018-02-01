@@ -151,8 +151,8 @@ def add_inventory_source():
  url = url_base + '/api/v2/inventories/8/inventory_sources/'
  payload = {
    "source_path": "hosts",
-   "source_project": 19,
-   "name": "iaefwvrev",
+   "source_project": project_id,
+   "name": "inventory_source",
    "overwrite_vars": True,
    "source": "scm"
 }
