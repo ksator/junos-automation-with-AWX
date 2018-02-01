@@ -241,7 +241,10 @@ credential_id = get_the_credential_id()
 add_inventory()
 inventory_id = get_the_inventory_id()
 add_inventory_source()
+print 'wait 20 seconds before to resume'
+time.sleep(20)
 add_templates()
+
 
 
 
