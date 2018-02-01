@@ -1,3 +1,10 @@
+# Documentation structure
+[**About AWX**](README.md#about-this-project)  
+[**About this repo**](README.md#about-this-repo)
+[**How to use this repo**](README.md#how-to-use-this-repo) 
+
+
+
 # About AWX
 
 AWX is Ansible Tower open sourced.  
@@ -7,11 +14,7 @@ You can it if you want to consume your ansible playbooks with:
 - users authentication and permissions. 
 
 [**AWX FAQ**](https://www.ansible.com/products/awx-project/faq)  
-
-# About AWX REST API
-
 [**AWX REST API guide**](http://docs.ansible.com/ansible-tower/2.3.0/html/towerapi/index.html)  
-
 You can visit the AWX REST API with a web browser: http://<AWX_IP_ADDRESS>/api/v2/  
 
 # About this repo  
@@ -21,9 +24,26 @@ It uses Python scripts and YAML variables. Python makes REST calls to AWX.
 
 # How to use this repo 
 
+## install AWX
+
+## install the Ansible requirements for Junos
+
+## install the python library **requests**
+```
+sudo -s
+pip install requests
+```
+## clone the repository and move to the local directory
+```
+sudo -s
+git clone https://github.com/ksator/junos-automation-with-AWX.git
+cd junos-automation-with-AWX
+```
+
 The file [**variable.yml**](variable.yml) has variables. You need to edit it to indicates details such as: 
 - The IP address of your AWX  
 - 
+
 
 ```
 vi variable.yml
