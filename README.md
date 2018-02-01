@@ -28,7 +28,7 @@ You need to:
 - install Ansible requirements for Junos
 - clone this repository
 - edit the file [**variables.yml**](variables.yml) to indicate some details (AWX IP address, the git repository that has your playbooks ....)
-- execute the file [** **](). it will configure AWX with your details
+- execute the file [**configure_awx_using_your_variables.py**](configure_awx_using_your_variables.py). It configures AWX with your details.
 - you can now consume your playybooks with AWX GUI and AWX API.  
    - execute the file [** **]() to consume your playbooks from AWX API. 
 
