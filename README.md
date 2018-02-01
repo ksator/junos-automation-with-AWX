@@ -75,6 +75,16 @@ vi variable.yml
 
 
 ## execute the file [**configure_awx_using_your_variables.py**](configure_awx_using_your_variables.py)
+
+The file [**configure_awx_using_your_variables.py**](configure_awx_using_your_variables.py) uses the details in the file [**variables.yml**]variables.yml and creates: 
+- An AWX organization
+- An AWX team. The team belongs to the organization created above
+- An AWX user. The user belongs to the team created above
+- Credentials for AWX to connect to junos devices. These credentials belongs to the organization created above
+- An AWX project. The project belongs to the organization created above. The project uses playbooks from a git repository.
+- An AWX inventory. it belongs to the organization created above
+- An equivalent AWX template for each playbook from the git repository
+
 ```
 # python configure_awx_from_variables.py 
 Juniper organization successfully created
@@ -97,10 +107,7 @@ pb.print.facts.yml template successfully created
 pb.check.all.yml template successfully created
 pb.check.ports.availability.yml template successfully created
 ```
-the file [**configure_awx_using_your_variables.py**](configure_awx_using_your_variables.py) created: 
-- an AWX organization
-- an AWX tean (that below
-- an AWX user (that be
+
 
 
 ## Looking for more Junos automation solutions
