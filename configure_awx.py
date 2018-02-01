@@ -33,6 +33,7 @@ for item in rest_call.json()['results']:
 #  print "Juniper organization is " + str(item['id'])
   Juniper_id = str(item['id'])
 
+"""
 # add a user ksator to the organization Juniper
 url = url_base + '/api/v2/organizations/' + Juniper_id + '/users/'
 payload = {
@@ -48,7 +49,7 @@ if rest_call.status_code == 201:
      print 'user ksator created and added successfully to the organization Juniper'
 else:
      print 'failed to create the user ksator in the organization Juniper'
-
+"""
 
 """
 create the user ksator
@@ -89,4 +90,22 @@ if rest_call.status_code == 201:
      print 'team automation successfully created and added to the Juniper organization'
 else:
      print 'failed to create the team automation'
+
+
+# add a user ksator to the team automation
+#url = url_base + '/api/v2/organizations/' + Juniper_id + '/users/'
+url = url_base + '/api/v2/teams/2/users/'
+payload = {
+    "username": "ksator2",
+    "first_name": "khelil2",
+    "last_name": "sator2",
+    "is_superuser": False,
+    "password": "AWXpassword"
+}
+rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
+# pprint (rest_call.json())
+if rest_call.status_code == 201:
+     print 'user ksator created and added successfully to the team automation'
+else:
+     print 'failed to create the user ksator in the team automation'
 
