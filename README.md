@@ -14,7 +14,6 @@ You can it if you want to consume your ansible playbooks with:
 
 Here's the [**AWX FAQ**](https://www.ansible.com/products/awx-project/faq)  
 Here's the [**AWX REST API guide**](http://docs.ansible.com/ansible-tower/2.3.0/html/towerapi/index.html)  
-You can visit the AWX REST API with a web browser: http://<awx_ip_address>/api/v2/  
 
 # About this repo  
 
@@ -29,10 +28,14 @@ You need to:
 - install the requirements to use Ansible modules for Junos  
 - install the requirements to use the python scripts hosted in this repository  
 - clone this repository
-- edit the file [**variables.yml**](variables.yml) to indicate your details (ip address of your awx, the git repository that has your playbooks ....)
-- execute the file [**configure_awx_using_your_variables.py**](configure_awx_using_your_variables.py). It configures AWX with your details.
-- you can now consume your playybooks with AWX GUI and AWX API.  
-   - execute the file [**run_awx_templates.py**](run_awx_templates.py) to consume your playbooks from AWX API. 
+- edit the file [**variables.yml**](variables.yml) to indicate your details 
+    - ip address of your awx, the git repository that has your playbooks ....
+- execute the file [**configure_awx_using_your_variables.py**](configure_awx_using_your_variables.py).  
+  - It configures AWX with your details.
+- you can now consume your playybooks with AWX GUI and AWX API.
+   - AWX GUI is http://<awx_ip_address>/api/v2/  
+   - You can visit the AWX REST API with a web browser: http://<awx_ip_address>/api/v2/ 
+   - Execute the file [**run_awx_templates.py**](run_awx_templates.py) to consume your playbooks from AWX API. 
 
 # install AWX 
 
