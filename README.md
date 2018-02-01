@@ -4,10 +4,11 @@
 [**How to use this repo**](README.md#how-to-use-this-repo)  
 
 
+Looking for more Junos automation solutions
 # About AWX
 
 AWX is Ansible Tower open sourced.  
-You can it if you want to consume your ansible playbooks with:
+You can use it if you want to consume your ansible playbooks with:
 - GUI
 - REST API
 - users authentication and permissions. 
@@ -17,9 +18,9 @@ Here's the [**AWX REST API guide**](http://docs.ansible.com/ansible-tower/2.3.0/
 
 # About this repo  
 
-- This repository has automation content that configure AWX. If you want to use AWX to consume playbooks, you can use this repository to quickly add them to AWX.  
-- This repository has automation content that consume AWX (execute playbooks with REST calls).    
-- It uses Python scripts and YAML variables. The python scripts use the library **requests** to makes REST calls to AWX.   
+- This repository has automation content that configures AWX. If you want to consume Ansible playbooks using AWX, you can use this repository to quickly add them to AWX.  
+- This repository has automation content that consumes AWX (execute playbooks with REST calls).    
+- It uses Python scripts and YAML variables. 
 
 # How to use this repo 
 
@@ -41,7 +42,8 @@ Here's the [install guide](https://github.com/ansible/awx/blob/devel/INSTALL.md)
 
 # install the requirements to use Ansible modules for Junos  
 
-# install the python library **requests**
+# install the requirements to use the python scripts hosted in this repository  
+The python scripts  hosted in this repository use the library **requests** to makes REST calls to AWX.   
 ```
 sudo -s
 pip install requests
@@ -56,15 +58,23 @@ cd junos-automation-with-AWX
 
 # edit the file variables.yml
 
-The file [**variable.yml**](variable.yml) has variables. You need to edit it to indicates details such as: 
-- The IP address of your AWX  
-- 
+The file [**variable.yml**](variable.yml) defines variables. Edit it to indicate details such as: 
+- The IP address of your AWX   
+- the git repository that has your playbooks
+- the list of playbooks from your git repository you want to add to AWX
+- and some additionnal details
 
-# execute the file [**configure_awx_using_your_variables.py**](configure_awx_using_your_variables.py)
+```
+more variable.yml
+
+```
 
 ```
 vi variable.yml
 ```
+
+
+# execute the file [**configure_awx_using_your_variables.py**](configure_awx_using_your_variables.py)
 ```
 # python configure_awx_from_variables.py 
 Juniper organization successfully created
