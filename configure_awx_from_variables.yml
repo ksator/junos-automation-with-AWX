@@ -4,6 +4,7 @@ from requests.auth import HTTPBasicAuth
 import json
 from pprint import pprint
 import yaml
+import time
 
 # This block defines the functions we will use
 def import_variables_from_file():
@@ -177,7 +178,31 @@ def add_inventory_source():
       print 'failed to add the file ' + my_variables_in_yaml['inventory']['name'] + ' as a source of the inventory ' + my_variables_in_yaml['inventory']['name']
 
 
-
+def add_templates():
+ url = url_base + '/api/v2/job_templates/'
+ payload = {
+   'name': "run_" + item, 
+   'description': "template to execute " + item + " playbook", 
+   'job_type': 'run', 
+   'inventory': inventory_id, 
+   'project': project_id, 
+   'playbook': item, 
+   'credential': 2, 
+   'verbosity': 0, 
+   "extra_vars": '', 
+   "skip_tags": '', 
+   "start_at_task": '',
+   "ask_limit_on_launch": True,
+   "ask_variables_on_launch": False,
+   "ask_verbosity_on_launch": True
+ }
+ for item in my_variables_in_yaml['playbooks']:
+  rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
+ # pprint (rest_call.json())
+ if rest_call.status_code == 201:
+    print item + ' template successfully created 
+ else:
+    print 'failed to create the template ' + item
   
 # this block is the AWX configuration using REST calls  
 my_variables_in_yaml=import_variables_from_file()
@@ -198,7 +223,7 @@ add_credentials()
 add_inventory()
 inventory_id = get_the_inventory_id()
 add_inventory_source()
-
+add_templates()
 
 
 
