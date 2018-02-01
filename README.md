@@ -22,10 +22,15 @@ This repository has automation content that consume AWX (execute playbooks with 
 It uses Python scripts and YAML variables. The python scripts use the library **requests** to makes REST calls to AWX.   
 
 # How to use this repo 
+You need to: 
+- install AWX
+- install Ansible requirements for Junos
+- clone this repository
+- edit the file [variables.]
 
-## install AWX
+# install AWX
 
-## install the Ansible requirements for Junos
+# install the Ansible requirements for Junos
 
 ## install the python library **requests**
 ```
