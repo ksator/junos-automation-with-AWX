@@ -136,6 +136,22 @@ def add_inventory():
       print 'failed to create the inventory ' + my_variables_in_yaml['credentials']['name'] + ' in the organization ' + my_variables_in_yaml['organization']['name']
 
 
+def add_inventory_source():
+ url = url_base + '/api/v2/inventories/8/inventory_sources/'
+ payload = {
+   "source_path": "hosts",
+   "source_project": 19,
+   "name": "iaefwvrev",
+   "overwrite_vars": True,
+   "source": "scm"
+}
+ rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
+ # pprint (rest_call.json())
+ if rest_call.status_code == 201:
+      print 'def add_inventory_source() went OK'
+ else:
+      print 'def add_inventory_source() failed' 
+      
 
 my_variables_in_yaml=import_variables_from_file()
 
@@ -155,26 +171,6 @@ add_the_user_to_the_team()
 add_the_project_to_the_organization()
 add_credentials()
 add_inventory()
-
-def add_inventory_source():
- url = url_base + '/api/v2/inventories/8/inventory_sources/'
- payload = {
-"source_path": "hosts",
-"source_project": 19,
-"name": "iaefwvrev",
-"overwrite_vars": True,
-"source": "scm"
-}
-
- rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
- # pprint (rest_call.json())
- if rest_call.status_code == 201:
-      print my_variables_in_yaml['inventory']['name'] + ' inventory successfully created and added to the ' + my_variables_in_yaml['organization']['name'] + ' organization'
- else:
-      print 'failed to create the inventory ' + my_variables_in_yaml['credentials']['name'] + ' in the organization ' + my_variables_in_yaml['organization']['name']
-
-
-
 add_inventory_source()
 
 
