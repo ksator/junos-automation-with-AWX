@@ -139,7 +139,7 @@ for item in rest_call.json()['results']:
 
 
 
-# add a user ksator to the team automation
+# add the user to the team
 url = url_base + '/api/v2/teams/' + automation_id + '/users/'
 payload = {
     "username": my_variables_in_yaml['user']['username'],
