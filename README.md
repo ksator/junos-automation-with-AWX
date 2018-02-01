@@ -17,10 +17,8 @@ You can visit the AWX REST API with a web browser: http://<AWX_IP_ADDRESS>/api/v
 
 # About this repo  
 
-If you want to use AWX to consume your playbooks, you can use this repository. 
-This repository has automation content that configure AWX to use your  
-- consume AWX  
-
+This repository has automation content that configure AWX. If you want to use AWX to consume playbooks, you can use this repository to quickly add them to AWX.  
+This repository has automation content that consume AWX (execute playbooks with REST calls).    
 It uses Python scripts and YAML variables. The python scripts use the library **requests** to makes REST calls to AWX.   
 
 # How to use this repo 
