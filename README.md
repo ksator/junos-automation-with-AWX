@@ -1,9 +1,7 @@
 # Documentation structure
 [**About AWX**](README.md#about-this-project)  
-[**About this repo**](README.md#about-this-repo)
-[**How to use this repo**](README.md#how-to-use-this-repo) 
-
-
+[**About this repo**](README.md#about-this-repo)  
+[**How to use this repo**](README.md#how-to-use-this-repo)  
 
 # About AWX
 
@@ -19,8 +17,11 @@ You can visit the AWX REST API with a web browser: http://<AWX_IP_ADDRESS>/api/v
 
 # About this repo  
 
-This repo is about using automation to configure and to consume AWX.  
-It uses Python scripts and YAML variables. Python makes REST calls to AWX.   
+This repo is about using automation to:  
+- configure AWX 
+- consume AWX  
+
+It uses Python scripts and YAML variables. The python scripts use the library **requests** to makes REST calls to AWX.   
 
 # How to use this repo 
 
