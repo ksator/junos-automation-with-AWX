@@ -1,4 +1,5 @@
 # rest calls to AWX 
+
 import requests
 from requests.auth import HTTPBasicAuth
 import json
@@ -29,16 +30,16 @@ rest_call = requests.get(url, headers=headers, auth=(authuser, authpwd))
 # pprint (rest_call.json())
 for item in rest_call.json()['results']:
  if item['name'] == 'Juniper':
-  print "Juniper organization is " + str(item['id'])
-
+#  print "Juniper organization is " + str(item['id'])
+  Juniper_id = str(item['id'])
 
 # add a user ksator to the organization Juniper
-url = url_base + '/api/v2/organizations/1/users/'
+url = url_base + '/api/v2/organizations/' + Juniper_id + '/users/'
 payload = {
     "username": "ksator",
     "first_name": "khelil",
     "last_name": "sator",
-    "is_superuser": True,
+    "is_superuser": False,
     "password": "AWXpassword"
 }
 rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
@@ -70,10 +71,22 @@ else:
 # get the user id for ksator
 url = url_base + "/api/v2/users/"
 rest_call = requests.get(url, headers=headers, auth=(authuser, authpwd))
-pprint (rest_call.json())
+#pprint (rest_call.json())
 for item in rest_call.json()['results']:
  if item['username'] == 'ksator':
   print "ksator username id is " + str(item['id'])
 
 
+# create a team automation
+url = url_base + '/api/v2/organizations/' + Juniper_id + '/teams/'
+payload = {
+    "name": "automation",
+    "organization": Juniper_id
+}
+rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
+pprint (rest_call.json())
+if rest_call.status_code == 201:
+     print 'team automation successfully created and added to the Juniper organization'
+else:
+     print 'failed to create the team automation'
 
