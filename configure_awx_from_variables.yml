@@ -37,7 +37,7 @@ payload = {
 rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
 # pprint (rest_call.json())
 if rest_call.status_code == 201:
-     print 'organization ' + my_variables_in_yaml['organization']['name'] + ' successfully created'
+     print my_variables_in_yaml['organization']['name'] + ' organization successfully created'
 else:
      print 'failed to create the organization ' + my_variables_in_yaml['organization']['name']
 
@@ -120,7 +120,7 @@ payload = {
 rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
 # pprint (rest_call.json())
 if rest_call.status_code == 201:
-     print 'team ' + my_variables_in_yaml['team']['name'] + ' successfully created and added to the organization ' + my_variables_in_yaml['organization']['name'] 
+     print my_variables_in_yaml['team']['name'] + ' team successfully created and added to the ' + my_variables_in_yaml['organization']['name'] + ' organization' 
 else:
      print 'failed to create the team ' + my_variables_in_yaml['team']['name'] + ' in the organization ' + my_variables_in_yaml['organization']['name']   
 
@@ -151,8 +151,28 @@ payload = {
 rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
 # pprint (rest_call.json())
 if rest_call.status_code == 201:
-     print 'user ' + my_variables_in_yaml['user']['username'] + ' successfully created and added to the team ' + my_variables_in_yaml['team']['name']
+     print my_variables_in_yaml['user']['username'] + ' user successfully created and added to the ' + my_variables_in_yaml['team']['name'] + ' team'
 else:
      print 'failed to create the user ' + my_variables_in_yaml['user']['username'] + ' in the team ' + my_variables_in_yaml['team']['name']
+
+
+# add the project to the organization
+url = url_base + '/api/v2/projects/'
+payload = {
+    "name": my_variables_in_yaml['project']['name'],
+    "scm_type": "git",
+    "scm_url": my_variables_in_yaml['project']['git_url'],
+    "scm_branch": "", 
+    "scm_clean": True,
+    "scm_delete_on_update": True,
+    "organization": int(organization_id),
+    "scm_update_on_launch": False
+}
+rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
+# pprint (rest_call.json())
+if rest_call.status_code == 201:
+     print my_variables_in_yaml['project']['name'] + ' project successfully created and added to the ' + my_variables_in_yaml['organization']['name'] + ' organization'
+else:
+     print 'failed to create the user ' + my_variables_in_yaml['project']['name'] + ' in the organization ' + my_variables_in_yaml['organization']['name']
 
 

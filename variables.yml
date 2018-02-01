@@ -14,5 +14,6 @@ user:
  last_name: "sator"
  password: "AWXpassword"
 
-
-
+project: 
+ name: "Junos automation"
+ git_url: "https://github.com/ksator/lab_management.git"
