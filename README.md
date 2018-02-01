@@ -11,51 +11,31 @@ This repo is used to configure AWX and to consume it with its REST API.
 
 # How to use this repo 
 
-The python scripts [**configure_awx_templates.py**](configure_awx_templates.py) make a REST call to AWX in order to create AWX templates (i.e to add your Ansible playbooks to AWX)  
-Usage: 
 ```
-$ python configure_awx_templates.py 
-run_pb.check.lldp.yml template has been created
-run_pb.check.bgp.yml template has been created
-run_pb.check.interfaces.yml template has been created
-run_pb.check.vlans.yml template has been created
-run_pb.check.lldp.json.yml template has been created
+vi variable.yml
 ```
-
-The python scripts [**run_awx_templates.py**](run_awx_templates.py) uses the AWX REST API to execute an AWX template (i.e an Ansible playbook) and to print the status.  
-
-Usage:
-``` 
-$ python run_awx_templates.py <template_name>
 ```
-Example: 
+# python configure_awx_from_variables.py 
+Juniper organization successfully created
+automation team successfully created and added to the Juniper organization
+ksator user successfully created and added to the automation team
+Junos automation project successfully created and added to the Juniper organization
+junos credentials successfully created and added to the Juniper organization
+junos_lab inventory successfully created and added to the Juniper organ
+hosts file successfully added as a source to junos_lab inventory
+wait 20 seconds before to resume
+pb.check.lldp.yml template successfully created
+pb.check.bgp.yml template successfully created
+pb.check.interfaces.yml template successfully created
+pb.check.vlans.yml template successfully created
+pb.check.lldp.json.yml template successfully created
+pb.configure.golden.yml template successfully created
+pb.configure.telemetry.yml template successfully created
+pb.rollback.yml template successfully created
+pb.print.facts.yml template successfully created
+pb.check.all.yml template successfully created
+pb.check.ports.availability.yml template successfully created
 ```
-$ python AWX/run_awx_templates.py wrong_name
-there is a problem with that template
-```
-Example: 
-```
-$ python run_awx_templates.py valid_name
-waiting for the job to complete ... 
-still waiting for the job to complete ...
-still waiting for the job to complete ...
-status is successful
-```
-
-
-The python scripts [**delete_awx_template.py**](delete_awx_template.py) make a REST call to AWX in order to delete an AWX template (i.e to remove an Ansible playbook from AWX)  
-Usage: 
-```
-$ python delete_awx_templates.py 
-```
-
-The python scripts [**delete_awx_templates.py**](delete_awx_templates.py) makes REST calls to AWX in order to delete all AWX templates (i.e to remove all Ansible playbook from AWX)  
-Usage: 
-```
-$ python delete_awx_templates.py 
-```
-
-
 # Looking for more Junos automation solutions
 
 https://github.com/ksator?tab=repositories  
