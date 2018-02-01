@@ -1,7 +1,15 @@
-# AWX REST API
+# About AWX
 
 [**About AWX**](https://www.ansible.com/products/awx-project/faq)  
 [**AWX REST API guide**](http://docs.ansible.com/ansible-tower/2.3.0/html/towerapi/index.html)  
+AWX GUI: http://localhost/  
+You can visit the AWX REST API in a web browser at http://localhost/api/v2/  
+
+# About this repo  
+
+This repo is used to configure AWX and to consume it with its REST API.  
+
+# How to use this repo 
 
 The python scripts [**configure_awx_templates.py**](configure_awx_templates.py) make a REST call to AWX in order to create AWX templates (i.e to add your Ansible playbooks to AWX)  
 Usage: 
