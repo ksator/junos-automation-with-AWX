@@ -30,7 +30,7 @@ rest_call = requests.get(url, headers=headers, auth=(authuser, authpwd))
 # pprint (rest_call.json())
 for item in rest_call.json()['results']:
  if item['name'] == 'Juniper':
-#  print "Juniper organization is " + str(item['id'])
+#  print "Juniper organization id is " + str(item['id'])
   Juniper_id = str(item['id'])
 
 """
