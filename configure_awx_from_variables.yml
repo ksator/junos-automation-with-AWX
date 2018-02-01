@@ -147,8 +147,19 @@ def add_inventory():
       print 'failed to create the inventory ' + my_variables_in_yaml['credentials']['name'] + ' in the organization ' + my_variables_in_yaml['organization']['name']
 
 
+def get_the_inventory_id(): 
+ url = url_base + "/api/v2/inventories/"
+ rest_call = requests.get(url, headers=headers, auth=(authuser, authpwd))
+ # pprint (rest_call.json())
+ for item in rest_call.json()['results']:
+  if item['name'] == my_variables_in_yaml['inventory']['name']:
+ #  print "inventory id is " + str(item['id'])
+   inventory_id = str(item['id'])
+  return inventory_id
+
+
 def add_inventory_source():
- url = url_base + '/api/v2/inventories/8/inventory_sources/'
+ url = url_base + '/api/v2/inventories/' + inventory_id + '/inventory_sources/'
  payload = {
    "source_path": "hosts",
    "source_project": project_id,
@@ -164,6 +175,9 @@ def add_inventory_source():
       print 'def add_inventory_source() failed' 
       
 
+
+  
+  
 my_variables_in_yaml=import_variables_from_file()
 # this is the default AWX user
 authuser = 'admin'
@@ -180,6 +194,7 @@ add_the_project_to_the_organization()
 project_id = get_the_project_id()
 add_credentials()
 add_inventory()
+get_the_inventory_id()
 add_inventory_source()
 
 
