@@ -25,5 +25,6 @@ credentials:
 
 inventory: 
  name: "junos_lab"
+ file: "hosts"
 
 

@@ -161,23 +161,24 @@ def get_the_inventory_id():
 def add_inventory_source():
  url = url_base + '/api/v2/inventories/' + inventory_id + '/inventory_sources/'
  payload = {
-   "source_path": "hosts",
+   "source_path": my_variables_in_yaml['inventory']['file'],
    "source_project": project_id,
    "name": "inventory_source",
    "overwrite_vars": True,
+   "update_on_launch": True,
    "source": "scm"
 }
  rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
  # pprint (rest_call.json())
  if rest_call.status_code == 201:
-      print 'def add_inventory_source() went OK'
+      print my_variables_in_yaml['inventory']['file'] + ' file successfully added as a source to ' + my_variables_in_yaml['inventory']['name'] + ' inventory'
  else:
-      print 'def add_inventory_source() failed' 
-      
+      print 'failed to add the file ' + my_variables_in_yaml['inventory']['name'] + ' as a source of the inventory ' + my_variables_in_yaml['inventory']['name']
+
 
 
   
-  
+# this is the AWX configuration using REST calls  
 my_variables_in_yaml=import_variables_from_file()
 # this is the default AWX user
 authuser = 'admin'
