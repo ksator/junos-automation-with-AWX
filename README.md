@@ -17,9 +17,9 @@ Here's the [**AWX REST API guide**](http://docs.ansible.com/ansible-tower/2.3.0/
 
 # About this repo  
 
-This repository has automation content that configure AWX. If you want to use AWX to consume playbooks, you can use this repository to quickly add them to AWX.  
-This repository has automation content that consume AWX (execute playbooks with REST calls).    
-It uses Python scripts and YAML variables. The python scripts use the library **requests** to makes REST calls to AWX.   
+- This repository has automation content that configure AWX. If you want to use AWX to consume playbooks, you can use this repository to quickly add them to AWX.  
+- This repository has automation content that consume AWX (execute playbooks with REST calls).    
+- It uses Python scripts and YAML variables. The python scripts use the library **requests** to makes REST calls to AWX.   
 
 # How to use this repo 
 
@@ -28,11 +28,9 @@ The steps are:
 - install the requirements to use Ansible modules for Junos  
 - install the requirements to use the python scripts hosted in this repository  
 - clone this repository
-- edit the file [**variables.yml**](variables.yml) to indicate your details 
-    - ip address of your awx, the git repository that has your playbooks ....
-- execute the file [**configure_awx_using_your_variables.py**](configure_awx_using_your_variables.py).  
-  - It uses your details from the file [**variables.yml**](variables.yml) and configure AWX    
-- you can now consume your playybooks with AWX GUI and AWX API.
+- edit the file [**variables.yml**](variables.yml) to indicate your details such as the ip address of your awx, the git repository that has your playbooks, ....
+- execute the file [**configure_awx_using_your_variables.py**](configure_awx_using_your_variables.py): It uses the details from the file [**variables.yml**](variables.yml) and configure AWX    
+- you can now consume your playbooks with AWX GUI and AWX API!
    - AWX GUI is http://<awx_ip_address>    
    - You can visit the AWX REST API with a web browser: http://<awx_ip_address>/api/v2/ 
    - Execute the file [**run_awx_templates.py**](run_awx_templates.py) to consume your playbooks from AWX REST API. 
