@@ -1,4 +1,6 @@
+###################################################
 # This block indicates the various import
+###################################################
 import requests
 from requests.auth import HTTPBasicAuth
 import json
@@ -6,7 +8,10 @@ from pprint import pprint
 import yaml
 import time
 
+
+##################################################
 # This block defines the functions we will use
+###################################################
 def import_variables_from_file():
  my_variables_file=open('variables.yml', 'r')
  my_variables_in_string=my_variables_file.read()
@@ -133,6 +138,15 @@ def add_credentials():
  else:
       print 'failed to create the credentials ' + my_variables_in_yaml['credentials']['name'] + ' in the organization ' + my_variables_in_yaml['organization']['name']
 
+def get_the_credential_id(): 
+ url = url_base + "/api/v2/credentials/"
+ rest_call = requests.get(url, headers=headers, auth=(authuser, authpwd))
+ # pprint (rest_call.json())
+ for item in rest_call.json()['results']:
+  if item['name'] == my_variables_in_yaml['credentials']['name']:
+ #  print "inventory id is " + str(item['id'])
+   credential_id = str(item['id'])
+return credential_id
 
 def add_inventory():
  url = url_base + '/api/v2/inventories/'
@@ -187,7 +201,7 @@ def add_templates():
    'inventory': inventory_id, 
    'project': project_id, 
    'playbook': item, 
-   'credential': 2, 
+   'credential': credential_id, 
    'verbosity': 0, 
    "extra_vars": '', 
    "skip_tags": '', 
@@ -204,7 +218,10 @@ def add_templates():
  else:
     print 'failed to create the template ' + item
   
-# this block is the AWX configuration using REST calls  
+
+######################################################
+# this block is the AWX configuration using REST calls
+######################################################
 my_variables_in_yaml=import_variables_from_file()
 # this is the default AWX user
 authuser = 'admin'
@@ -220,6 +237,7 @@ add_the_user_to_the_team()
 add_the_project_to_the_organization()
 project_id = get_the_project_id()
 add_credentials()
+credential_id = get_the_credential_id()
 add_inventory()
 inventory_id = get_the_inventory_id()
 add_inventory_source()
