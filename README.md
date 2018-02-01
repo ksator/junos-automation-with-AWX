@@ -1,11 +1,11 @@
-# Documentation structure
+## Documentation structure
 [**About AWX**](README.md#about-this-project)  
 [**About this repo**](README.md#about-this-repo)  
 [**How to use this repo**](README.md#how-to-use-this-repo)  
 
 
 Looking for more Junos automation solutions
-# About AWX
+## About AWX
 
 AWX is Ansible Tower open sourced.  
 You can use it if you want to consume your ansible playbooks with:
@@ -16,13 +16,13 @@ You can use it if you want to consume your ansible playbooks with:
 Here's the [**AWX FAQ**](https://www.ansible.com/products/awx-project/faq)  
 Here's the [**AWX REST API guide**](http://docs.ansible.com/ansible-tower/2.3.0/html/towerapi/index.html)  
 
-# About this repo  
+## About this repo  
 
 - This repository has automation content that configures AWX. If you want to consume Ansible playbooks using AWX, you can use this repository to quickly add them to AWX.  
 - This repository has automation content that consumes AWX (execute playbooks with REST calls).    
 - It uses Python scripts and YAML variables. 
 
-# How to use this repo 
+## How to use this repo 
 
 The steps are:  
 - install AWX
@@ -36,27 +36,27 @@ The steps are:
    - You can visit the AWX REST API with a web browser: http://<awx_ip_address>/api/v2/ 
    - Execute the file [**run_awx_templates.py**](run_awx_templates.py) to consume your playbooks from AWX REST API. 
 
-# install AWX 
+## install AWX 
 
 Here's the [install guide](https://github.com/ansible/awx/blob/devel/INSTALL.md)
 
-# install the requirements to use Ansible modules for Junos  
+## install the requirements to use Ansible modules for Junos  
 
-# install the requirements to use the python scripts hosted in this repository  
+## install the requirements to use the python scripts hosted in this repository  
 The python scripts  hosted in this repository use the library **requests** to makes REST calls to AWX.   
 ```
 sudo -s
 pip install requests
 ```
 
-# clone this repository
+## clone this repository
 ```
 sudo -s
 git clone https://github.com/ksator/junos-automation-with-AWX.git
 cd junos-automation-with-AWX
 ```
 
-# edit the file variables.yml
+## edit the file variables.yml
 
 The file [**variable.yml**](variable.yml) defines variables. Edit it to indicate details such as: 
 - The IP address of your AWX   
@@ -74,7 +74,7 @@ vi variable.yml
 ```
 
 
-# execute the file [**configure_awx_using_your_variables.py**](configure_awx_using_your_variables.py)
+## execute the file [**configure_awx_using_your_variables.py**](configure_awx_using_your_variables.py)
 ```
 # python configure_awx_from_variables.py 
 Juniper organization successfully created
@@ -97,7 +97,13 @@ pb.print.facts.yml template successfully created
 pb.check.all.yml template successfully created
 pb.check.ports.availability.yml template successfully created
 ```
-# Looking for more Junos automation solutions
+the file [**configure_awx_using_your_variables.py**](configure_awx_using_your_variables.py) created: 
+- an AWX organization
+- an AWX tean (that below
+- an AWX user (that be
+
+
+## Looking for more Junos automation solutions
 
 https://github.com/ksator?tab=repositories  
 https://gitlab.com/users/ksator/projects  
