@@ -22,11 +22,16 @@ This repository has automation content that consume AWX (execute playbooks with 
 It uses Python scripts and YAML variables. The python scripts use the library **requests** to makes REST calls to AWX.   
 
 # How to use this repo 
+
 You need to: 
 - install AWX
 - install Ansible requirements for Junos
 - clone this repository
-- edit the file [variables.]
+- edit the file [**variables.yml**](variables.yml) to indicate some details (AWX IP address, the git repository that has your playbooks ....)
+- execute the file [** **](). it will configure AWX with your details
+- you can now consume your playybooks with AWX GUI and AWX API.  
+   - execute the file [** **]() to consume your playbooks from AWX API. 
+
 
 # install AWX
 
