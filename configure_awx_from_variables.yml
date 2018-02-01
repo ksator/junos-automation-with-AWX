@@ -6,15 +6,19 @@ import yaml
 
 
 
-# import variables from variables.yml file
-my_variables_file=open('variables.yml', 'r')
-my_variables_in_string=my_variables_file.read()
-# print my_variables_in_string
-my_variables_in_yaml=yaml.load(my_variables_in_string)
-# print my_variables_in_yaml
-# print my_variables_in_yaml['awx']['ip']
-my_variables_file.close()
+def import_variables_from_file():
+ my_variables_file=open('variables.yml', 'r')
+ my_variables_in_string=my_variables_file.read()
+ # print my_variables_in_string
+ my_variables_in_yaml=yaml.load(my_variables_in_string)
+ # print my_variables_in_yaml
+ # print my_variables_in_yaml['awx']['ip']
+ my_variables_file.close()
+ return my_variables_in_yaml
 
+
+
+my_variables_in_yaml=import_variables_from_file()
 
 
 # this is the default AWX user
@@ -28,30 +32,35 @@ url_base = 'http://' + my_variables_in_yaml['awx']['ip']
 
 
 
-
-# create the organization 
-url=url_base + '/api/v2/organizations/'
-payload = {
-    "name": my_variables_in_yaml['organization']['name']
-}
-rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
-# pprint (rest_call.json())
-if rest_call.status_code == 201:
-     print my_variables_in_yaml['organization']['name'] + ' organization successfully created'
-else:
-     print 'failed to create the organization ' + my_variables_in_yaml['organization']['name']
-
+def create_the_organization():
+ url=url_base + '/api/v2/organizations/'
+ payload = {
+     "name": my_variables_in_yaml['organization']['name']
+ }
+ rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
+ # pprint (rest_call.json())
+ if rest_call.status_code == 201:
+      print my_variables_in_yaml['organization']['name'] + ' organization successfully created'
+ else:
+      print 'failed to create the organization ' + my_variables_in_yaml['organization']['name']
 
 
-# get the id of the organization 
-url = url_base + "/api/v2/organizations/"
-rest_call = requests.get(url, headers=headers, auth=(authuser, authpwd))
-# pprint (rest_call.json())
-for item in rest_call.json()['results']:
- if item['name'] == my_variables_in_yaml['organization']['name']:
-#  print my_variables_in_yaml['organization']['name'] + " organization id is " + str(item['id'])
-  organization_id = str(item['id'])
 
+create_the_organization()
+
+
+def get_the_id_of_the_organization(): 
+ url = url_base + "/api/v2/organizations/"
+ rest_call = requests.get(url, headers=headers, auth=(authuser, authpwd))
+ # pprint (rest_call.json())
+ for item in rest_call.json()['results']:
+  if item['name'] == my_variables_in_yaml['organization']['name']:
+ #  print my_variables_in_yaml['organization']['name'] + " organization id is " + str(item['id'])
+   organization_id = str(item['id'])
+   return organization_id
+
+
+organization_id = get_the_id_of_the_organization()
 
 
 
