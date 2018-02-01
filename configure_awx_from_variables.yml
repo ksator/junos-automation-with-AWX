@@ -194,7 +194,7 @@ add_the_project_to_the_organization()
 project_id = get_the_project_id()
 add_credentials()
 add_inventory()
-get_the_inventory_id()
+inventory_id = get_the_inventory_id()
 add_inventory_source()
 
 
