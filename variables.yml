@@ -1,0 +1,18 @@
+---
+awx: 
+ ip: 192.168.233.142
+
+organization: 
+ name: "Juniper"
+
+team:
+ name: "automation"
+
+user: 
+ username: "ksator"
+ first_name: "khelil"
+ last_name: "sator"
+ password: "AWXpassword"
+
+
+

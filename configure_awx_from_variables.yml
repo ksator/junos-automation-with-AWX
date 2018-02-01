@@ -1,0 +1,158 @@
+import requests
+from requests.auth import HTTPBasicAuth
+import json
+from pprint import pprint
+import yaml
+
+
+
+# import variables from variables.yml file
+my_variables_file=open('variables.yml', 'r')
+my_variables_in_string=my_variables_file.read()
+# print my_variables_in_string
+my_variables_in_yaml=yaml.load(my_variables_in_string)
+# print my_variables_in_yaml
+# print my_variables_in_yaml['awx']['ip']
+my_variables_file.close()
+
+
+
+# this is the default AWX user
+authuser = 'admin'
+authpwd = 'password'
+
+
+headers = { 'content-type' : 'application/json' }
+url_base = 'http://' + my_variables_in_yaml['awx']['ip']
+# print url_base
+
+
+
+
+# create the organization 
+url=url_base + '/api/v2/organizations/'
+payload = {
+    "name": my_variables_in_yaml['organization']['name']
+}
+rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
+# pprint (rest_call.json())
+if rest_call.status_code == 201:
+     print 'organization ' + my_variables_in_yaml['organization']['name'] + ' successfully created'
+else:
+     print 'failed to create the organization ' + my_variables_in_yaml['organization']['name']
+
+
+
+# get the id of the organization 
+url = url_base + "/api/v2/organizations/"
+rest_call = requests.get(url, headers=headers, auth=(authuser, authpwd))
+# pprint (rest_call.json())
+for item in rest_call.json()['results']:
+ if item['name'] == my_variables_in_yaml['organization']['name']:
+#  print my_variables_in_yaml['organization']['name'] + " organization id is " + str(item['id'])
+  organization_id = str(item['id'])
+
+
+
+
+"""
+# add the user to the organization
+
+url = url_base + '/api/v2/organizations/' + organization_id + '/users/'
+payload = {
+    "username": my_variables_in_yaml['user']['username'],
+    "first_name": my_variables_in_yaml['user']['first_name'],
+    "last_name": my_variables_in_yaml['user']['last_name'],
+    "is_superuser": False,
+    "password": my_variables_in_yaml['user']['password']
+}
+rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
+pprint (rest_call.json())
+if rest_call.status_code == 201:
+     print 'user ' + my_variables_in_yaml['user']['username']  + ' successfully created and added to the organization ' + my_variables_in_yaml['organization']['name']
+else:
+     print 'failed to create the user ' + my_variables_in_yaml['user']['username'] + ' in the organization ' + my_variables_in_yaml['organization']['name']
+"""
+
+
+
+"""
+# create the user
+
+payload = {
+    "username": my_variables_in_yaml['user']['username'],
+    "first_name": my_variables_in_yaml['user']['first_name'],
+    "last_name": my_variables_in_yaml['user']['last_name'],
+    "is_superuser": False,
+    "password": my_variables_in_yaml['user']['password']
+}
+
+url=url_base + '/api/v2/users/'
+rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
+# pprint (rest_call.json())
+if rest_call.status_code == 201:
+     print 'user ' + my_variables_in_yaml['user']['username'] + ' successfully created'
+else:
+     print 'failed to create the user ' + my_variables_in_yaml['user']['username']
+"""
+
+
+
+"""
+# get the user id
+
+url = url_base + "/api/v2/users/"
+rest_call = requests.get(url, headers=headers, auth=(authuser, authpwd))
+#pprint (rest_call.json())
+for item in rest_call.json()['results']:
+ if item['username'] == my_variables_in_yaml['user']['username']:
+  print my_variables_in_yaml['user']['username'] + " id is " + str(item['id'])
+"""
+
+
+
+# create the team
+url = url_base + '/api/v2/organizations/' + organization_id + '/teams/'
+payload = {
+    "name": my_variables_in_yaml['team']['name'],
+    "organization": organization_id
+}
+rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
+# pprint (rest_call.json())
+if rest_call.status_code == 201:
+     print 'team ' + my_variables_in_yaml['team']['name'] + ' successfully created and added to the organization ' + my_variables_in_yaml['organization']['name'] 
+else:
+     print 'failed to create the team ' + my_variables_in_yaml['team']['name'] + ' in the organization ' + my_variables_in_yaml['organization']['name']   
+
+
+
+
+# get the automation team id
+url = url_base + "/api/v2/teams/"
+rest_call = requests.get(url, headers=headers, auth=(authuser, authpwd))
+# pprint (rest_call.json())
+for item in rest_call.json()['results']:
+ if item['name'] == my_variables_in_yaml['team']['name']:
+#  print "Juniper organization id is " + str(item['id'])
+  automation_id = str(item['id'])
+
+
+
+
+# add a user ksator to the team automation
+url = url_base + '/api/v2/teams/' + automation_id + '/users/'
+payload = {
+    "username": my_variables_in_yaml['user']['username'],
+    "first_name": my_variables_in_yaml['user']['first_name'],
+    "last_name": my_variables_in_yaml['user']['last_name'],
+    "is_superuser": False,
+    "password": my_variables_in_yaml['user']['password']
+}
+rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
+# pprint (rest_call.json())
+if rest_call.status_code == 201:
+     print 'user ' + my_variables_in_yaml['user']['username'] + ' successfully created and added to the team ' + my_variables_in_yaml['team']['name']
+else:
+     print 'failed to create the user ' + my_variables_in_yaml['user']['username'] + ' in the team ' + my_variables_in_yaml['team']['name']
+
+
