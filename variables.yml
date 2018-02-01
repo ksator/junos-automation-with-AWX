@@ -22,3 +22,8 @@ credentials:
  name: "junos"
  username: "lab"
  password: "jnpr123"
+
+inventory: 
+ name: "junos_lab"
+
+
