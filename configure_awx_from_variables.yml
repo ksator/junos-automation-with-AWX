@@ -1,10 +1,11 @@
+# This block indicates the various import
 import requests
 from requests.auth import HTTPBasicAuth
 import json
 from pprint import pprint
 import yaml
 
-
+# This block defines the functions we will use
 def import_variables_from_file():
  my_variables_file=open('variables.yml', 'r')
  my_variables_in_string=my_variables_file.read()
@@ -178,7 +179,7 @@ def add_inventory_source():
 
 
   
-# this is the AWX configuration using REST calls  
+# this block is the AWX configuration using REST calls  
 my_variables_in_yaml=import_variables_from_file()
 # this is the default AWX user
 authuser = 'admin'
