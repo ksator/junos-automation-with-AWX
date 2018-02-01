@@ -6,7 +6,7 @@ You can it if you want to consume your ansible playbooks with:
 - REST API
 - users authentication and permissions. 
 
-[**About AWX**](https://www.ansible.com/products/awx-project/faq)  
+[**AWX FAQ**](https://www.ansible.com/products/awx-project/faq)  
 
 # About AWX REST API
 
