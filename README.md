@@ -23,7 +23,7 @@ It uses Python scripts and YAML variables. The python scripts use the library **
 
 # How to use this repo 
 
-You need to: 
+The steps are:  
 - install AWX
 - install the requirements to use Ansible modules for Junos  
 - install the requirements to use the python scripts hosted in this repository  
@@ -31,11 +31,11 @@ You need to:
 - edit the file [**variables.yml**](variables.yml) to indicate your details 
     - ip address of your awx, the git repository that has your playbooks ....
 - execute the file [**configure_awx_using_your_variables.py**](configure_awx_using_your_variables.py).  
-  - It configures AWX with your details.
+  - It uses your details from the file [**variables.yml**](variables.yml) and configure AWX    
 - you can now consume your playybooks with AWX GUI and AWX API.
-   - AWX GUI is http://<awx_ip_address>/api/v2/  
+   - AWX GUI is http://<awx_ip_address>    
    - You can visit the AWX REST API with a web browser: http://<awx_ip_address>/api/v2/ 
-   - Execute the file [**run_awx_templates.py**](run_awx_templates.py) to consume your playbooks from AWX API. 
+   - Execute the file [**run_awx_templates.py**](run_awx_templates.py) to consume your playbooks from AWX REST API. 
 
 # install AWX 
 
