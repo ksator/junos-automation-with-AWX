@@ -5,7 +5,6 @@ from pprint import pprint
 import yaml
 
 
-
 def import_variables_from_file():
  my_variables_file=open('variables.yml', 'r')
  my_variables_in_string=my_variables_file.read()
@@ -15,21 +14,6 @@ def import_variables_from_file():
  # print my_variables_in_yaml['awx']['ip']
  my_variables_file.close()
  return my_variables_in_yaml
-
-
-
-my_variables_in_yaml=import_variables_from_file()
-
-
-# this is the default AWX user
-authuser = 'admin'
-authpwd = 'password'
-
-
-headers = { 'content-type' : 'application/json' }
-url_base = 'http://' + my_variables_in_yaml['awx']['ip']
-# print url_base
-
 
 
 def create_the_organization():
@@ -45,10 +29,6 @@ def create_the_organization():
       print 'failed to create the organization ' + my_variables_in_yaml['organization']['name']
 
 
-
-create_the_organization()
-
-
 def get_the_id_of_the_organization(): 
  url = url_base + "/api/v2/organizations/"
  rest_call = requests.get(url, headers=headers, auth=(authuser, authpwd))
@@ -59,9 +39,82 @@ def get_the_id_of_the_organization():
    organization_id = str(item['id'])
    return organization_id
 
+def create_the_team(): 
+ url = url_base + '/api/v2/organizations/' + organization_id + '/teams/'
+ payload = {
+     "name": my_variables_in_yaml['team']['name'],
+     "organization": organization_id
+ }
+ rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
+ # pprint (rest_call.json())
+ if rest_call.status_code == 201:
+      print my_variables_in_yaml['team']['name'] + ' team successfully created and added to the ' + my_variables_in_yaml['organization']['name'] + ' organization' 
+ else:
+      print 'failed to create the team ' + my_variables_in_yaml['team']['name'] + ' in the organization ' + my_variables_in_yaml['organization']['name']   
 
+def get_the_team_id(): 
+ url = url_base + "/api/v2/teams/"
+ rest_call = requests.get(url, headers=headers, auth=(authuser, authpwd))
+ # pprint (rest_call.json())
+ for item in rest_call.json()['results']:
+  if item['name'] == my_variables_in_yaml['team']['name']:
+ #  print "Juniper organization id is " + str(item['id'])
+   team_id = str(item['id'])
+  return team_id
+
+def add_the_user_to_the_team(): 
+ url = url_base + '/api/v2/teams/' + team_id + '/users/'
+ payload = {
+     "username": my_variables_in_yaml['user']['username'],
+     "first_name": my_variables_in_yaml['user']['first_name'],
+     "last_name": my_variables_in_yaml['user']['last_name'],
+     "is_superuser": False,
+     "password": my_variables_in_yaml['user']['password']
+ }
+ rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
+ # pprint (rest_call.json())
+ if rest_call.status_code == 201:
+      print my_variables_in_yaml['user']['username'] + ' user successfully created and added to the ' + my_variables_in_yaml['team']['name'] + ' team'
+ else:
+      print 'failed to create the user ' + my_variables_in_yaml['user']['username'] + ' in the team ' + my_variables_in_yaml['team']['name']
+
+
+def add_the_project_to_the_organization(): 
+ url = url_base + '/api/v2/projects/'
+ payload = {
+     "name": my_variables_in_yaml['project']['name'],
+     "scm_type": "git",
+     "scm_url": my_variables_in_yaml['project']['git_url'],
+     "scm_branch": "", 
+     "scm_clean": True,
+     "scm_delete_on_update": True,
+     "organization": int(organization_id),
+     "scm_update_on_launch": False
+ }
+ rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
+ # pprint (rest_call.json())
+ if rest_call.status_code == 201:
+      print my_variables_in_yaml['project']['name'] + ' project successfully created and added to the ' + my_variables_in_yaml['organization']['name'] + ' organization'
+ else:
+      print 'failed to create the user ' + my_variables_in_yaml['project']['name'] + ' in the organization ' + my_variables_in_yaml['organization']['name']
+
+
+my_variables_in_yaml=import_variables_from_file()
+
+# this is the default AWX user
+authuser = 'admin'
+authpwd = 'password'
+
+headers = { 'content-type' : 'application/json' }
+url_base = 'http://' + my_variables_in_yaml['awx']['ip']
+# print url_base
+
+create_the_organization()
 organization_id = get_the_id_of_the_organization()
-
+create_the_team()
+team_id = get_the_team_id()
+add_the_user_to_the_team()
+add_the_project_to_the_organization()
 
 
 """
@@ -82,9 +135,6 @@ if rest_call.status_code == 201:
 else:
      print 'failed to create the user ' + my_variables_in_yaml['user']['username'] + ' in the organization ' + my_variables_in_yaml['organization']['name']
 """
-
-
-
 """
 # create the user
 
@@ -104,9 +154,6 @@ if rest_call.status_code == 201:
 else:
      print 'failed to create the user ' + my_variables_in_yaml['user']['username']
 """
-
-
-
 """
 # get the user id
 
@@ -117,71 +164,5 @@ for item in rest_call.json()['results']:
  if item['username'] == my_variables_in_yaml['user']['username']:
   print my_variables_in_yaml['user']['username'] + " id is " + str(item['id'])
 """
-
-
-
-# create the team
-url = url_base + '/api/v2/organizations/' + organization_id + '/teams/'
-payload = {
-    "name": my_variables_in_yaml['team']['name'],
-    "organization": organization_id
-}
-rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
-# pprint (rest_call.json())
-if rest_call.status_code == 201:
-     print my_variables_in_yaml['team']['name'] + ' team successfully created and added to the ' + my_variables_in_yaml['organization']['name'] + ' organization' 
-else:
-     print 'failed to create the team ' + my_variables_in_yaml['team']['name'] + ' in the organization ' + my_variables_in_yaml['organization']['name']   
-
-
-
-
-# get the automation team id
-url = url_base + "/api/v2/teams/"
-rest_call = requests.get(url, headers=headers, auth=(authuser, authpwd))
-# pprint (rest_call.json())
-for item in rest_call.json()['results']:
- if item['name'] == my_variables_in_yaml['team']['name']:
-#  print "Juniper organization id is " + str(item['id'])
-  automation_id = str(item['id'])
-
-
-
-
-# add the user to the team
-url = url_base + '/api/v2/teams/' + automation_id + '/users/'
-payload = {
-    "username": my_variables_in_yaml['user']['username'],
-    "first_name": my_variables_in_yaml['user']['first_name'],
-    "last_name": my_variables_in_yaml['user']['last_name'],
-    "is_superuser": False,
-    "password": my_variables_in_yaml['user']['password']
-}
-rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
-# pprint (rest_call.json())
-if rest_call.status_code == 201:
-     print my_variables_in_yaml['user']['username'] + ' user successfully created and added to the ' + my_variables_in_yaml['team']['name'] + ' team'
-else:
-     print 'failed to create the user ' + my_variables_in_yaml['user']['username'] + ' in the team ' + my_variables_in_yaml['team']['name']
-
-
-# add the project to the organization
-url = url_base + '/api/v2/projects/'
-payload = {
-    "name": my_variables_in_yaml['project']['name'],
-    "scm_type": "git",
-    "scm_url": my_variables_in_yaml['project']['git_url'],
-    "scm_branch": "", 
-    "scm_clean": True,
-    "scm_delete_on_update": True,
-    "organization": int(organization_id),
-    "scm_update_on_launch": False
-}
-rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
-# pprint (rest_call.json())
-if rest_call.status_code == 201:
-     print my_variables_in_yaml['project']['name'] + ' project successfully created and added to the ' + my_variables_in_yaml['organization']['name'] + ' organization'
-else:
-     print 'failed to create the user ' + my_variables_in_yaml['project']['name'] + ' in the organization ' + my_variables_in_yaml['organization']['name']
 
 
