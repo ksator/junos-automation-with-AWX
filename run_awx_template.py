@@ -2,15 +2,14 @@
 Description: use this script to make a REST call to AWX in order to run an existing AWX template (i.e an Ansible playbook)
 '''
 '''
-usage: 
-$ python run_awx_templates.py <template_name>
-
-bad example: 
-$ python run_awx_templates.py wrong_awx_template_name
+usage: $ python run_awx_templates.py <template_name>
+'''
+'''
+bad example: $ python run_awx_templates.py wrong_awx_template_name
 there is a problem with that template
-
-good example: 
-$ python run_awx_templates.py valid_awx_template_name
+'''
+'''
+good example: $ python run_awx_templates.py valid_awx_template_name
 waiting for the job to complete ... 
 still waiting for the job to complete ...
 still waiting for the job to complete ...
