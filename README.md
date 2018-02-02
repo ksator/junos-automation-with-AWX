@@ -33,6 +33,7 @@ Here's the [**AWX REST API guide**](http://docs.ansible.com/ansible-tower/2.3.0/
 The steps are:  
 - install AWX
 - install the requirements to use Ansible modules for Junos  
+- Add the Juniper.junos role to AWX
 - install the requirements to use the python scripts hosted in this repository  
 - clone this repository
 - edit the file [**variables.yml**](variables.yml) to indicate your details such as the ip address of your AWX, the git repository that has the playbooks you want to add yo your AWX, ....
@@ -77,7 +78,7 @@ pip install junos-eznc jxmlease jsnapy
 ```
 Once complete, exit out of the container.
 
-## install the Juniper.junos role to AWX
+## Add the Juniper.junos role to AWX
 
 In addition to the [ansible modules for Junos](http://docs.ansible.com/ansible/latest/list_of_network_modules.html#junos) shipped with AWX, there is also another modules librairy you can use to interact with Junos.  
 These modules are available in the ```Juniper.junos``` role on [galaxy](https://galaxy.ansible.com/Juniper/junos/)  
@@ -108,16 +109,16 @@ roles_path = /etc/ansible/roles:./
 # ls /etc/ansible/roles/
 Juniper.junos
 ```
+Once complete, exit out of the container.  
+
 Here's the Juniper.junos role documentation: 
 - http://junos-ansible-modules.readthedocs.io/en/1.4.3/
-- http://junos-ansible-modules.readthedocs.io/en/2.0.1/
-
-
-Once complete, exit out of the container.
+- http://junos-ansible-modules.readthedocs.io/
 
 
 ## install the requirements to use the python scripts hosted in this repository  
 The python scripts  hosted in this repository use the library **requests** to makes REST calls to AWX.   
+Run these commands on your laptop:
 ```
 sudo -s
 pip install requests
@@ -131,19 +132,20 @@ git clone https://github.com/ksator/junos-automation-with-AWX.git
 cd junos-automation-with-AWX
 ```
 
-## On your laptop, edit the file variables.yml
+## edit the file variables.yml
 
 The file [**variables.yml**](variables.yml) defines variables.  
-Edit it to indicate details such as: 
+On your laptop, edit it to indicate details such as: 
 - The IP address of your AWX   
 - the git repository that has your playbooks
 - the list of playbooks from your git repository you want to add to AWX
+- the Junos devices credentials
 - and some additionnal details
 
+Run these commands on your laptop:
 ```
 vi variable.yml
 ```
-
 ```
 $ more variables.yml 
 ---
@@ -206,9 +208,9 @@ playbooks:
 ```
 
 
-## On your laptop, execute the script configure_awx.py
+## execute the script configure_awx.py
 
-The file [**configure_awx_using_your_variables.py**](configure_awx_using_your_variables.py) uses the details in the file [**variables.yml**](variables.yml) and creates: 
+The file [**configure_awx.py**](configure_awx.py) uses the details in the file [**variables.yml**](variables.yml) and creates: 
 - An AWX organization
 - An AWX team. The team belongs to the organization created above
 - An AWX user. The user belongs to the team created above
@@ -216,6 +218,7 @@ The file [**configure_awx_using_your_variables.py**](configure_awx_using_your_va
 - An AWX project. The project belongs to the organization created above. The project uses playbooks from a git repository.
 - An AWX inventory. it belongs to the organization created above
 - An equivalent AWX template for each playbook from the git repository
+Run this command on your laptop:
 
 ```
 # python configure_awx_from_variables.py 
