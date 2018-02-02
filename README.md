@@ -224,7 +224,7 @@ playbooks:
 ```
 
 
-## execute the script configure_awx.py
+## Configure AWX
 
 The file [**configure_awx.py**](configure_awx.py) uses the details in the file [**variables.yml**](variables.yml) and creates: 
 - An AWX organization
@@ -263,7 +263,7 @@ http://<awx_ip_address>/api/v2/users/?username=ksator
 http://<awx_ip_address>/api/v2/job_templates/?name=run_pb.check.bgp.yml
 ```
 
-## consume AWX templates 
+## Consume AWX templates 
 
 The python script ```run_awx_templates.py``` makes REST calls to AWX to run an existing awx template.  
 Pass the template as an argument.   
@@ -291,11 +291,13 @@ status is successful
 there is a problem with that template
 ```
 
-## delete AWX templates 
+## Delete AWX templates 
 Run this command on your laptop:  
 ```
 # python delete_awx_templates.py 
 ```
+
+Note: By default, AWX database is lost with reboots. You can change this behavior when you install AWX if you prefer AWX to keep its database after system restarts.  
 
 ## Continuous integration with Travis CI
 
