@@ -164,7 +164,7 @@ def add_inventory():
  rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
  # pprint (rest_call.json())
  if rest_call.status_code == 201:
-      print my_variables_in_yaml['inventory']['name'] + ' inventory successfully created and added to the ' + my_variables_in_yaml['organization']['name'] + ' organ'
+      print my_variables_in_yaml['inventory']['name'] + ' inventory successfully created and added to the ' + my_variables_in_yaml['organization']['name'] + ' organization'
  else:
       print 'failed to create the inventory ' + my_variables_in_yaml['credentials']['name'] + ' in the organization ' + my_variables_in_yaml['organization']['name']
 
@@ -177,7 +177,7 @@ def get_the_inventory_id():
   if item['name'] == my_variables_in_yaml['inventory']['name']:
  #  print "inventory id is " + str(item['id'])
    inventory_id = str(item['id'])
-  return inventory_id
+ return inventory_id
 
 
 def add_inventory_source():
