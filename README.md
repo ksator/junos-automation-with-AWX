@@ -10,9 +10,9 @@
 [**Add the Juniper.junos role**](README.md#add-the-juniperjunos-role)  
 [**install the requirements to use the python scripts hosted in this repository**](README.md#install-the-requirements-to-use-the-python-scripts-hosted-in-this-repository)   
 [**clone this repository**](README.md#clone-this-repository)  
-[**edit the file variables.yml**](README.md#edit-the-file-variablesyml)  
-[**configure AWX**](README.md#configure-awx)  
-[**consume AWX templates**](README.md#consume-awx-templates)  
+[**Define your variables**](README.md#define-your-variables)  
+[**Configure AWX**](README.md#configure-awx)  
+[**Consume AWX templates**](README.md#consume-awx-templates)  
 [**Delete awx templates**](README.md#delete-awx-templates)  
 [**Continuous integration with Travis CI**](README.md#continuous-integration-with-travis-ci)  
 [**Looking for more Junos automation solutions**](README.md#looking-for-more-junos-automation-solutions)  
@@ -148,7 +148,7 @@ git clone https://github.com/ksator/junos-automation-with-AWX.git
 cd junos-automation-with-AWX
 ```
 
-## edit the file variables.yml
+## Define your variables
 
 The file [**variables.yml**](variables.yml) defines variables.  
 On your laptop, edit it to indicate details such as: 
