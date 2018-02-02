@@ -266,7 +266,7 @@ http://<awx_ip_address>/api/v2/job_templates/?name=run_pb.check.bgp.yml
 ## Consume AWX templates 
 
 The python script ```run_awx_templates.py``` makes REST calls to AWX to run an existing awx template.  
-Pass the template as an argument.   
+Pass the template name as an argument.   
 Run this command on your laptop to consume an existing awx template:  
 ```
 # python run_awx_template.py run_pb.check.bgp.yml
