@@ -1,5 +1,5 @@
 ###################################################
-# This block indicates the various import
+# This block indicates the various imports
 ###################################################
 import requests
 from requests.auth import HTTPBasicAuth
