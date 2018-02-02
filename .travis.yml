@@ -5,16 +5,16 @@ python:
 sudo: required
 dist: xenial
 
-install:
-  - pip install -r requirements.txt
+#install:
+#  - pip install -r requirements.txt
 
 script:
   - python -m py_compile configure_awx.py
   - python -m py_compile delete_awx_templates.py
   - python -m py_compile run_awx_template.py
-  - pylint configure_awx.py -r no
-  - pylint delete_awx_templates.py -r no
-  - pylint run_awx_template.py -r no
+#  - pylint configure_awx.py -r no
+#  - pylint delete_awx_templates.py -r no
+#  - pylint run_awx_template.py -r no
   
 branches:
   only:
