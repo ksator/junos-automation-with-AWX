@@ -30,23 +30,23 @@ Here's the [**AWX REST API guide**](http://docs.ansible.com/ansible-tower/2.3.0/
 
 ## About this repo  
 
+This repository uses Python scripts and YAML variables.  
 This repository has automation content that configures an existing AWX setup. If you want to consume Ansible playbooks using AWX, you can use this repository to quickly add these playbooks to AWX.  
-This repository has automation content that consumes AWX. You can use this repository to execute playbooks with REST calls.    
-It uses Python scripts and YAML variables.  
+This repository has automation content that consumes AWX: you can use this repository to execute playbooks with REST calls.    
 
-Note: This repository doesnt install AWX. You still need to install AWX yourself.    
+This repository doesnt install AWX. You still need to install AWX yourself. 
 
 ## How to use this repo 
 
 The steps are:  
-- install AWX
-- install the requirements to use Ansible modules for Junos  
-- Add the Juniper.junos role to AWX
-- install the requirements to use the python scripts hosted in this repository  
-- clone this repository
-- edit the file [**variables.yml**](variables.yml) to indicate your details such as the ip address of your AWX, the git repository that has the playbooks you want to add yo your AWX, ....
-- execute the script [**configure_awx.py**](configure_awx.py): It uses the variables you defined in the file [**variables.yml**](variables.yml) to configure AWX    
-- you can now consume your playbooks with AWX GUI and AWX API!
+- Install AWX. This repository doesnt install AWX. You still need to install AWX yourself.  
+- Install the requirements to use Ansible modules for Junos  
+- Add the Juniper.junos role from Galaxy to AWX
+- Install the requirements to use the python scripts hosted in this repository  
+- Clone this repository
+- Edit the file [**variables.yml**](variables.yml) to indicate your details such as the ip address of your AWX, the git repository that has the playbooks you want to add yo your AWX, ....
+- Execute the script [**configure_awx.py**](configure_awx.py): It uses the variables you defined in the file [**variables.yml**](variables.yml) to configure AWX    
+- You can now consume your playbooks with AWX GUI and AWX API!
    - AWX GUI is ```http://<awx_ip_address>```    
    - You can visit the AWX REST API with a web browser: ```http://<awx_ip_address>/api/v2/``` 
    - Execute the file [**run_awx_template.py**](run_awx_template.py) to consume your playbooks from AWX REST API. 
