@@ -7,7 +7,7 @@
 [**install the requirements to use the python scripts hosted in this repository**](README.md#install-the-requirements-to-use-the-python-scripts-hosted-in-this-repository)   
 [**clone this repository**](README.md#clone-this-repository)  
 [**edit the file variables.yml**](README.md#edit-the-file-variablesyml)  
-[**execute the script configure_awx_using_your_variables.py**](README.md#execute-the-script-configure_awx_using_your_variablespy) 
+[**execute the script configure_awx_using_your_variables.py**](README.md#execute-the-script-configure_awx_using_your_variablespy)  
 [**Looking for more Junos automation solutions**](README.md#looking-for-more-junos-automation-solutions)  
 
 ## About AWX
