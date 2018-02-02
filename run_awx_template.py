@@ -5,12 +5,20 @@ Description: use this script to make a REST call to AWX in order to run an exist
 usage: $ python run_awx_templates.py <template_name>
 '''
 '''
-bad example: $ python run_awx_templates.py wrong_awx_template_name
+bad example:  python run_awx_templates.py wrong_awx_template_name
 there is a problem with that template
 '''
 '''
 good example: $ python run_awx_templates.py valid_awx_template_name
 waiting for the job to complete ... 
+still waiting for the job to complete ...
+still waiting for the job to complete ...
+status is successful
+'''
+'''
+$ python run_awx_template.py run_pb.check.bgp.yml
+waiting for the job to complete ... 
+still waiting for the job to complete ...
 still waiting for the job to complete ...
 still waiting for the job to complete ...
 status is successful
@@ -47,17 +55,17 @@ def import_variables_from_file():
 ######################################################
 
 my_variables_in_yaml=import_variables_from_file()
-
+'''
 authuser = my_variables_in_yaml['user']['username']
 authpwd = my_variables_in_yaml['user']['password']
 '''
+
 authuser = 'admin'
 authpwd = 'password'
-'''
 
 payload = {
     "limit": "",
-    "verbosity": 0,
+    "verbosity": 0
 }
 '''
 payload = {}
