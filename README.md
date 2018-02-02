@@ -30,7 +30,7 @@ The steps are:
 - install the requirements to use the python scripts hosted in this repository  
 - clone this repository
 - edit the file [**variables.yml**](variables.yml) to indicate your details such as the ip address of your awx, the git repository that has your playbooks, ....
-- execute the file [**configure_awx_using_your_variables.py**](configure_awx_using_your_variables.py): It uses the details from the file [**variables.yml**](variables.yml) and configure AWX    
+- execute the script [**configure_awx_using_your_variables.py**](configure_awx_using_your_variables.py): It uses the details from the file [**variables.yml**](variables.yml) and configure AWX    
 - you can now consume your playbooks with AWX GUI and AWX API!
    - AWX GUI is http://<awx_ip_address>    
    - You can visit the AWX REST API with a web browser: http://<awx_ip_address>/api/v2/ 
@@ -58,7 +58,8 @@ cd junos-automation-with-AWX
 
 ## edit the file variables.yml
 
-The file [**variable.yml**](variable.yml) defines variables. Edit it to indicate details such as: 
+The file [**variable.yml**](variable.yml) defines variables.  
+Edit it to indicate details such as: 
 - The IP address of your AWX   
 - the git repository that has your playbooks
 - the list of playbooks from your git repository you want to add to AWX
@@ -74,7 +75,7 @@ vi variable.yml
 ```
 
 
-## execute the file [**configure_awx_using_your_variables.py**](configure_awx_using_your_variables.py)
+## execute the script configure_awx_using_your_variables.py
 
 The file [**configure_awx_using_your_variables.py**](configure_awx_using_your_variables.py) uses the details in the file [**variables.yml**]variables.yml and creates: 
 - An AWX organization
