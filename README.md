@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/ksator/junos-automation-with-AWX.svg?branch=master)](https://travis-ci.org/ksator/junos-automation-with-AWX) 
 
+
 ## Documentation structure
 [**About AWX**](README.md#about-awx)  
 [**About this repo**](README.md#about-this-repo)  
