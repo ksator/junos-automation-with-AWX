@@ -45,7 +45,7 @@ The steps are:
 
 ## install AWX 
 
-Here's the [install guide](https://github.com/ansible/awx/blob/devel/INSTALL.md)  
+Here's the [**install guide**](https://github.com/ansible/awx/blob/devel/INSTALL.md)  
 I am running AWX as a containerized application.  
 Issue the ```docker ps``` command to see what containers are running.  
 ```
@@ -61,7 +61,7 @@ The default AWX credentials are admin/password.
 
 ## install the requirements to use Ansible modules for Junos  
 
-AWX natively includes [modules for Junos](http://docs.ansible.com/ansible/latest/list_of_network_modules.html#junos)
+AWX natively includes [**modules for Junos**](http://docs.ansible.com/ansible/latest/list_of_network_modules.html#junos)
 
 We need to install in the ```awx_task``` container the Ansible requirements to use the Ansible modules for Junos.  
 
@@ -70,22 +70,27 @@ Connect to the container cli:
 docker exec -it awx_task bash  
 ```
 
-Once connected, run these commands from awx_task to install the requirements:
+Once connected, run these commands from the awx_task container to install the requirements:
 ```
 yum install -y pip python-devel libxml2-devel libxslt-devel gcc openssl libffi-devel python-pip  
 pip install --upgrade pip
 pip install junos-eznc jxmlease jsnapy
 ```
 Once complete, exit out of the container.
+```
+# exit
+exit
+```
+
 
 ## Add the Juniper.junos role to AWX
 
-In addition to the [ansible modules for Junos](http://docs.ansible.com/ansible/latest/list_of_network_modules.html#junos) shipped with AWX, there is also another modules librairy you can use to interact with Junos.  
-These modules are available in the ```Juniper.junos``` role on [galaxy](https://galaxy.ansible.com/Juniper/junos/)  
+In addition to the [**ansible modules for Junos**](http://docs.ansible.com/ansible/latest/list_of_network_modules.html#junos) shipped with AWX, there is also another modules library you can use to interact with Junos.  
+These modules are available in the ```Juniper.junos``` role on [**galaxy**](https://galaxy.ansible.com/Juniper/junos/)  
 These modules are not shipped with Ansible. 
 These two sets of modules for Junos automation can coexist on the same Ansible control machine.  
 
-Run these commands from ```awx_task``` container to download and install the Juniper.junos role from [galaxy](https://galaxy.ansible.com/Juniper/junos/)
+Run these commands from ```awx_task``` container to download and install the ```Juniper.junos``` role from [**galaxy**](https://galaxy.ansible.com/Juniper/junos/)
 
 Connect to the container cli:
 ```
@@ -110,6 +115,10 @@ roles_path = /etc/ansible/roles:./
 Juniper.junos
 ```
 Once complete, exit out of the container.  
+```
+# exit
+exit
+```
 
 Here's the Juniper.junos role documentation: 
 - http://junos-ansible-modules.readthedocs.io/en/1.4.3/
@@ -217,7 +226,7 @@ The file [**configure_awx.py**](configure_awx.py) uses the details in the file [
 - Credentials for AWX to connect to junos devices. These credentials belongs to the organization created above
 - An AWX project. The project belongs to the organization created above. The project uses playbooks from a git repository.
 - An AWX inventory. it belongs to the organization created above
-- An equivalent AWX template for each playbook from the git repository
+- An equivalent AWX template for each playbook from the git repository  
 Run this command on your laptop:
 
 ```
@@ -242,8 +251,6 @@ pb.print.facts.yml template successfully created
 pb.check.all.yml template successfully created
 pb.check.ports.availability.yml template successfully created
 ```
-
-
 
 ## Looking for more Junos automation solutions
 
