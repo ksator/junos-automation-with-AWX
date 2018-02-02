@@ -3,12 +3,12 @@
 [**About this repo**](README.md#about-this-repo)  
 [**How to use this repo**](README.md#how-to-use-this-repo)    
 [**install AWX**](README.md#install-awx)  
-[**install in AWX the requirements to use Ansible modules for Junos**](README.md#install-in-awx-the-requirements-to-use-ansible-modules-for-junos)  
-[**Add the Juniper.junos role to AWX**](README.md#add_the_juniperjunos_role_to_awx)
-[**On your laptop, install the requirements to use the python scripts hosted in this repository**](README.md#install-the-requirements-to-use-the-python-scripts-hosted-in-this-repository)   
-[**On your laptop, clone this repository**](README.md#clone-this-repository)  
-[**On your laptop, edit the file variables.yml**](README.md#edit-the-file-variablesyml)  
-[**On your laptop, execute the script configure_awx.py**](README.md#execute-the-script-configure_awxpy)  
+[**install the requirements to use Ansible modules for Junos**](README.md#install-the-requirements-to-use-ansible-modules-for-junos)  
+[**Add the Juniper.junos role**](README.md#add_the_juniperjunos_role)
+[**install the requirements to use the python scripts hosted in this repository**](README.md#install-the-requirements-to-use-the-python-scripts-hosted-in-this-repository)   
+[**clone this repository**](README.md#clone-this-repository)  
+[**edit the file variables.yml**](README.md#edit-the-file-variablesyml)  
+[**execute the script configure_awx.py**](README.md#execute-the-script-configure_awxpy)  
 [**Looking for more Junos automation solutions**](README.md#looking-for-more-junos-automation-solutions)  
 
 ## About AWX
@@ -83,7 +83,7 @@ exit
 ```
 
 
-## Add the Juniper.junos role to AWX
+## Add the Juniper.junos role
 
 In addition to the [**ansible modules for Junos**](http://docs.ansible.com/ansible/latest/list_of_network_modules.html#junos) shipped with AWX, there is also another modules library you can use to interact with Junos.  
 These modules are available in the ```Juniper.junos``` role on [**galaxy**](https://galaxy.ansible.com/Juniper/junos/)  
