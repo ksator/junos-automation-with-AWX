@@ -84,7 +84,7 @@ def add_the_user_to_the_team():
      "username": my_variables_in_yaml['user']['username'],
      "first_name": my_variables_in_yaml['user']['first_name'],
      "last_name": my_variables_in_yaml['user']['last_name'],
-     "is_superuser": False,
+     "is_superuser": True,
      "password": my_variables_in_yaml['user']['password']
  }
  rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
@@ -102,7 +102,7 @@ def add_the_user_to_the_organization():
      "username": my_variables_in_yaml['user']['username'],
      "first_name": my_variables_in_yaml['user']['first_name'],
      "last_name": my_variables_in_yaml['user']['last_name'],
-     "is_superuser": False,
+     "is_superuser": True,
      "password": my_variables_in_yaml['user']['password']
  }
  rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
