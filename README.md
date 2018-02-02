@@ -1,14 +1,14 @@
 ## Documentation structure
-[**About AWX**](README.md#about-this-project)  
+[**About AWX**](README.md#about-awx)  
 [**About this repo**](README.md#about-this-repo)  
 [**How to use this repo**](README.md#how-to-use-this-repo)    
 [**install AWX**](README.md#install-awx)  
 [**install the requirements to use Ansible modules for Junos**](README.md#install-the-requirements-to-use-ansible-modules-for-junos)  
 [**install the requirements to use the python scripts hosted in this repository**](README.md#install-the-requirements-to-use-the-python-scripts-hosted-in-this-repository)   
 [**clone this repository**](README.md#clone-this-repository)  
-[**edit the file variables.yml**](README.md#edit-the-file-variables.yml)
-[**execute the script configure_awx_using_your_variables.py**](README.md#execute-the-script-configure_awx_using_your_variables.py)
-[**Looking for more Junos automation solutions**](README.md#looking-for-more-junos-automation-solutions)
+[**edit the file variables.yml**](README.md#edit-the-file-variablesyml)  
+[**execute the script configure_awx_using_your_variables.py**](README.md#execute-the-script-configure_awx_using_your_variablespy) 
+[**Looking for more Junos automation solutions**](README.md#looking-for-more-junos-automation-solutions)  
 
 ## About AWX
 
