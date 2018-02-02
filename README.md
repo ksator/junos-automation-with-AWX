@@ -9,6 +9,7 @@
 [**clone this repository**](README.md#clone-this-repository)  
 [**edit the file variables.yml**](README.md#edit-the-file-variablesyml)  
 [**execute the script configure_awx.py**](README.md#execute-the-script-configure_awxpy)  
+[**How to delete awx templates**](README.md#how-to-delete-awx-templates)  
 [**Looking for more Junos automation solutions**](README.md#looking-for-more-junos-automation-solutions)  
 
 ## About AWX
@@ -253,6 +254,7 @@ pb.check.ports.availability.yml template successfully created
 ```
 
 ## How to delete AWX templates? 
+Run this command on your laptop:  
 ```
 # python delete_awx_templates.py 
 ```
