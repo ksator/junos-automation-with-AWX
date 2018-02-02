@@ -63,7 +63,7 @@ The default AWX credentials are admin/password.
 
 AWX natively includes [**modules for Junos**](http://docs.ansible.com/ansible/latest/list_of_network_modules.html#junos)
 
-We need to install in the ```awx_task``` container the Ansible requirements to use the Ansible modules for Junos.  
+We need to install in the ```awx_task``` container the requirements to use the Ansible modules for Junos.  
 
 Connect to the container cli:
 ```
