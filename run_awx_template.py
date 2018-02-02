@@ -1,22 +1,24 @@
 '''
-Description: use this script to make a REST call to AWX in order to run an AWX template (i.e an Ansible playbook)
+Description: use this script to make a REST call to AWX in order to run an existing AWX template (i.e an Ansible playbook)
 '''
 '''
 usage: 
 $ python run_awx_templates.py <template_name>
 
-example: 
-$ python run_awx_templates.py wrong_template_name
+bad example: 
+$ python run_awx_templates.py wrong_awx_template_name
 there is a problem with that template
 
-example: 
-$ python run_awx_templates.py valid_template_name
+good example: 
+$ python run_awx_templates.py valid_awx_template_name
 waiting for the job to complete ... 
 still waiting for the job to complete ...
 still waiting for the job to complete ...
 status is successful
 '''
-
+###################################################
+# This block indicates the various imports
+###################################################
 import requests
 from requests.auth import HTTPBasicAuth
 # from pprint import pprint
@@ -24,23 +26,54 @@ import time
 import sys
 import json
 
-# make sure this user has permission to execute this AWX template
+
+##################################################
+# This block defines the functions we will use
+###################################################
+def import_variables_from_file():
+ my_variables_file=open('variables.yml', 'r')
+ my_variables_in_string=my_variables_file.read()
+ # print my_variables_in_string
+ my_variables_in_yaml=yaml.load(my_variables_in_string)
+ # print my_variables_in_yaml
+ # print my_variables_in_yaml['awx']['ip']
+ my_variables_file.close()
+return my_variables_in_yaml
+
+
+
+######################################################
+# this block is the AWX configuration using REST calls
+######################################################
+
+my_variables_in_yaml=import_variables_from_file()
+
+authuser = my_variables_in_yaml['user']['username']
+authpwd = my_variables_in_yaml['user']['password']
+'''
 authuser = 'admin'
 authpwd = 'password'
+'''
 
-# rest call to run the AWX template
-headers = { 'content-type' : 'application/json' }
-# payload = {}
 payload = {
-#   "limit": "QFX10K2-174",
     "limit": "",
-    "verbosity": 3,
-    "extra_vars": {
-       "rbid": 1
-    }
+    "verbosity": 0,
 }
+'''
+payload = {}
+'''
+'''
+payload = {
+   "limit": "QFX10K2-174",
+   "verbosity": 3,
+   "extra_vars": {
+      "rbid": 1
+   }
+}
+'''
 template_name = sys.argv[1]
-url = 'http://192.168.233.142/api/v2/job_templates/' + template_name + '/launch/'
+headers = { 'content-type' : 'application/json' }
+url = 'http://' + my_variables_in_yaml['awx']['ip'] + 'api/v2/job_templates/' + template_name + '/launch/'
 rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
 
 # print 'rest call http response code is ' + str(rest_call.status_code)
@@ -54,7 +87,7 @@ time.sleep(15)
 
 # print 'job that have the details for the previous rest call is ' + str(rest_call.json()['job'])
 # rest call to get the status of the previous template execution
-url='http://192.168.233.142/api/v2/jobs/' + str(rest_call.json()["job"])
+url='http://' + my_variables_in_yaml['awx']['ip'] + 'api/v2/jobs/' + str(rest_call.json()["job"])
 headers = { 'Accept' : 'application/json' }
 status=requests.get(url, auth=(authuser, authpwd), headers=headers)
 
