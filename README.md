@@ -13,7 +13,7 @@
 [**Define your variables**](README.md#define-your-variables)  
 [**Configure AWX**](README.md#configure-awx)  
 [**Consume AWX templates**](README.md#consume-awx-templates)  
-[**Delete awx templates**](README.md#delete-awx-templates)  
+[**Delete AWX templates**](README.md#delete-awx-templates)  
 [**Continuous integration with Travis CI**](README.md#continuous-integration-with-travis-ci)  
 [**Looking for more Junos automation solutions**](README.md#looking-for-more-junos-automation-solutions)  
 
