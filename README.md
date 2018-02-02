@@ -178,21 +178,19 @@ organization:
 team:
  name: "automation"
 
-# awx user you want to create. The below user belongs to the above team
+# awx user you want to create. The below user belongs to the above organization
 user: 
  username: "ksator"
  first_name: "khelil"
  last_name: "sator"
  password: "AWXpassword"
 
-# awx project you want to create. The below project belongs to the above organiza
-tion
+# awx project you want to create. The below project belongs to the above organization
 project: 
  name: "Junos automation"
  git_url: "https://github.com/ksator/lab_management.git"
 
-# credentials for AWX to connect to junos devices. The below credentials belongs 
-to the above organization
+# credentials for AWX to connect to junos devices. The below credentials belongs to the above organization
 credentials: 
  name: "junos"
  username: "lab"
@@ -206,8 +204,7 @@ inventory:
  file: "hosts"
 
 # awx templates you want to create. 
-# indicate the list of playbooks you want to use when creating equivalent awx tem
-plates. 
+# indicate the list of playbooks you want to use when creating equivalent awx templates. 
 # The below playbook belongs to the above source 
 playbooks: 
  - 'pb.check.lldp.yml'
