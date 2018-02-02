@@ -1,4 +1,10 @@
 ###################################################
+# This script takes the variables defined in the file variables.yml and make rest calls to AWX to configure it.
+###################################################
+###################################################
+# usage: python configure_awx.py
+###################################################
+###################################################
 # This block indicates the various imports
 ###################################################
 import requests
