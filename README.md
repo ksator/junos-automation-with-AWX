@@ -223,7 +223,7 @@ playbooks:
 The file [**configure_awx.py**](configure_awx.py) uses the details in the file [**variables.yml**](variables.yml) and creates: 
 - An AWX organization
 - An AWX team. The team belongs to the organization created above
-- An AWX user. The user belongs to the team created above
+- An AWX user. The user belongs to the organization created above
 - Credentials for AWX to connect to junos devices. These credentials belongs to the organization created above
 - An AWX project. The project belongs to the organization created above. The project uses playbooks from a git repository.
 - An AWX inventory. it belongs to the organization created above
@@ -231,26 +231,27 @@ The file [**configure_awx.py**](configure_awx.py) uses the details in the file [
 Run this command on your laptop:
 
 ```
-# python configure_awx_from_variables.py 
+# python configure_awx.py 
 Juniper organization successfully created
 automation team successfully created and added to the Juniper organization
-ksator user successfully created and added to the automation team
+ksator user successfully created and added to the Juniper organization
 Junos automation project successfully created and added to the Juniper organization
 junos credentials successfully created and added to the Juniper organization
-junos_lab inventory successfully created and added to the Juniper organ
+junos_lab inventory successfully created and added to the Juniper organization
 hosts file successfully added as a source to junos_lab inventory
 wait 20 seconds before to resume
-pb.check.lldp.yml template successfully created
-pb.check.bgp.yml template successfully created
-pb.check.interfaces.yml template successfully created
-pb.check.vlans.yml template successfully created
-pb.check.lldp.json.yml template successfully created
-pb.configure.golden.yml template successfully created
-pb.configure.telemetry.yml template successfully created
-pb.rollback.yml template successfully created
-pb.print.facts.yml template successfully created
-pb.check.all.yml template successfully created
-pb.check.ports.availability.yml template successfully created
+run_pb.check.lldp.yml template successfully created using the playbook pb.check.lldp.yml
+run_pb.check.bgp.yml template successfully created using the playbook pb.check.bgp.yml
+run_pb.check.interfaces.yml template successfully created using the playbook pb.check.interfaces.yml
+run_pb.check.vlans.yml template successfully created using the playbook pb.check.vlans.yml
+run_pb.check.lldp.json.yml template successfully created using the playbook pb.check.lldp.json.yml
+run_pb.configure.golden.yml template successfully created using the playbook pb.configure.golden.yml
+run_pb.configure.telemetry.yml template successfully created using the playbook pb.configure.telemetry.yml
+run_pb.rollback.yml template successfully created using the playbook pb.rollback.yml
+run_pb.print.facts.yml template successfully created using the playbook pb.print.facts.yml
+run_pb.check.all.yml template successfully created using the playbook pb.check.all.yml
+run_pb.check.ports.availability.yml template successfully created using the playbook pb.check.ports.availability.yml
+
 ```
 
 ## How to delete AWX templates? 

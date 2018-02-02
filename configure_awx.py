@@ -95,6 +95,24 @@ def add_the_user_to_the_team():
       print 'failed to create the user ' + my_variables_in_yaml['user']['username'] + ' in the team ' + my_variables_in_yaml['team']['name']
 
 
+
+def add_the_user_to_the_organization():
+ url = url_base + '/api/v2/organizations/' + organization_id + '/users/'
+ payload = {
+     "username": my_variables_in_yaml['user']['username'],
+     "first_name": my_variables_in_yaml['user']['first_name'],
+     "last_name": my_variables_in_yaml['user']['last_name'],
+     "is_superuser": False,
+     "password": my_variables_in_yaml['user']['password']
+ }
+ rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
+ # pprint (rest_call.json())
+ if rest_call.status_code == 201:
+      print my_variables_in_yaml['user']['username'] + ' user successfully created and added to the ' + my_variables_in_yaml['organization']['name'] + ' organization'
+ else:
+      print 'failed to create the user ' + my_variables_in_yaml['user']['username'] + ' in the organization ' + my_variables_in_yaml['organization']['name']
+
+
 def add_the_project_to_the_organization(): 
  url = url_base + '/api/v2/projects/'
  payload = {
@@ -220,10 +238,10 @@ def add_templates():
   rest_call = requests.post(url, headers=headers, auth=(authuser, authpwd), data=json.dumps(payload))
   # pprint (rest_call.json())
   if rest_call.status_code == 201:
-    print item + ' template successfully created' 
+    print 'run_' + item + ' template successfully created ' + 'using the playbook ' + item  
   else:
-    print 'failed to create the template ' + item
-  
+    print 'failed to create the template run_' + item  + ' using the playbook ' + item
+ 
 
 ######################################################
 # this block is the AWX configuration using REST calls
@@ -239,7 +257,8 @@ create_the_organization()
 organization_id = get_the_id_of_the_organization()
 create_the_team()
 team_id = get_the_team_id()
-add_the_user_to_the_team()
+add_the_user_to_the_organization()
+# add_the_user_to_the_team()
 add_the_project_to_the_organization()
 project_id = get_the_project_id()
 add_credentials()

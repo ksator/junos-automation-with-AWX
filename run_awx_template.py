@@ -55,13 +55,14 @@ def import_variables_from_file():
 ######################################################
 
 my_variables_in_yaml=import_variables_from_file()
-'''
+
 authuser = my_variables_in_yaml['user']['username']
 authpwd = my_variables_in_yaml['user']['password']
-'''
 
+'''
 authuser = 'admin'
 authpwd = 'password'
+'''
 
 payload = {
     "limit": "",
