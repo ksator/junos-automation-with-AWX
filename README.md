@@ -60,6 +60,8 @@ The default AWX credentials are admin/password.
 
 ## install the requirements to use Ansible modules for Junos  
 
+AWX natively includes [modules for Junos](http://docs.ansible.com/ansible/latest/list_of_network_modules.html#junos)
+
 We need to install in the ```awx_task``` container the Ansible requirements to use the Ansible modules for Junos.  
 
 Connect to the container cli:
@@ -71,23 +73,25 @@ Once connected, run these commands from awx_task to install the requirements:
 ```
 yum install -y pip python-devel libxml2-devel libxslt-devel gcc openssl libffi-devel python-pip  
 pip install --upgrade pip
-pip install junos-eznc jxmlease
+pip install junos-eznc jxmlease jsnapy
 ```
 Once complete, exit out of the container.
 
-## Add the Juniper.junos role to AWX
+## install the Juniper.junos role to AWX
 
-There are two modules librairies to interact with Junos.  
+In addition to the [ansible modules for Junos](http://docs.ansible.com/ansible/latest/list_of_network_modules.html#junos) shipped with AWX, there is also another modules librairy you can use to interact with Junos.  
+These modules are available in the ```Juniper.junos``` role on [galaxy](https://galaxy.ansible.com/Juniper/junos/)  
+These modules are not shipped with Ansible. 
 These two sets of modules for Junos automation can coexist on the same Ansible control machine.  
 
-- An Ansible library for Junos built by Ansible
-  - Since Ansible version >= 2.1, Ansible natively includes [modules for Junos](http://docs.ansible.com/ansible/latest/list_of_network_modules.html#junos)
-  - These modules are shipped with Ansible
-- An Ansible library for Junos built by Juniper 
-  - These modules are available in the Juniper.junos role on [galaxy](https://galaxy.ansible.com/Juniper/junos/)
-  - These modules are not shipped with Ansible. 
-
 Run these commands from ```awx_task``` container to download and install the Juniper.junos role from [galaxy](https://galaxy.ansible.com/Juniper/junos/)
+
+Connect to the container cli:
+```
+docker exec -it awx_task bash  
+```
+
+Once connected ```awx_task``` container, run these commands:
 ```
 # more ansible.cfg 
 [defaults]
@@ -119,7 +123,8 @@ sudo -s
 pip install requests
 ```
 
-## On your laptop, clone this repository
+## clone this repository
+Run these commands on your laptop:
 ```
 sudo -s
 git clone https://github.com/ksator/junos-automation-with-AWX.git
