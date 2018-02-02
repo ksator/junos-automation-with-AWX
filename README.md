@@ -50,6 +50,7 @@ The steps are:
 ## install AWX 
 
 Here's the [**install guide**](https://github.com/ansible/awx/blob/devel/INSTALL.md)  
+Note: By default, AWX database is lost with reboots. You can change this behavior when you install AWX if you prefer AWX to keep its database after system restarts.  
 I am running AWX as a containerized application.  
 Issue the ```docker ps``` command to see what containers are running.  
 ```
