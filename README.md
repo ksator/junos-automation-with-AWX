@@ -12,7 +12,7 @@
 [**edit the file variables.yml**](README.md#edit-the-file-variablesyml)  
 [**execute the script configure_awx.py**](README.md#execute-the-script-configure_awxpy)  
 [**How to delete awx templates**](README.md#how-to-delete-awx-templates)  
-[**Continuous integration with Travis CI**](README.md#continuous-integration-with-travis-ci)
+[**Continuous integration with Travis CI**](README.md#continuous-integration-with-travis-ci)  
 [**Looking for more Junos automation solutions**](README.md#looking-for-more-junos-automation-solutions)  
 
 ## About AWX
