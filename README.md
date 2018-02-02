@@ -1,10 +1,15 @@
 ## Documentation structure
 [**About AWX**](README.md#about-this-project)  
 [**About this repo**](README.md#about-this-repo)  
-[**How to use this repo**](README.md#how-to-use-this-repo)  
+[**How to use this repo**](README.md#how-to-use-this-repo)    
+[**install AWX**](README.md#install-awx)  
+[**install the requirements to use Ansible modules for Junos**](README.md#install-the-requirements-to-use-ansible-modules-for-junos)  
+[**install the requirements to use the python scripts hosted in this repository**](README.md#install-the-requirements-to-use-the-python-scripts-hosted-in-this-repository)   
+[**clone this repository**](README.md#clone-this-repository)  
+[**edit the file variables.yml**](README.md#edit-the-file-variables.yml)
+[**execute the script configure_awx_using_your_variables.py**](README.md#execute-the-script-configure_awx_using_your_variables.py)
+[**Looking for more Junos automation solutions**](README.md#looking-for-more-junos-automation-solutions)
 
-
-Looking for more Junos automation solutions
 ## About AWX
 
 AWX is Ansible Tower open sourced.  
@@ -32,8 +37,8 @@ The steps are:
 - edit the file [**variables.yml**](variables.yml) to indicate your details such as the ip address of your awx, the git repository that has your playbooks, ....
 - execute the script [**configure_awx_using_your_variables.py**](configure_awx_using_your_variables.py): It uses the details from the file [**variables.yml**](variables.yml) and configure AWX    
 - you can now consume your playbooks with AWX GUI and AWX API!
-   - AWX GUI is http://<awx_ip_address>    
-   - You can visit the AWX REST API with a web browser: http://<awx_ip_address>/api/v2/ 
+   - AWX GUI is ```http://<awx_ip_address>```    
+   - You can visit the AWX REST API with a web browser: ```http://<awx_ip_address>/api/v2/``` 
    - Execute the file [**run_awx_template.py**](run_awx_template.py) to consume your playbooks from AWX REST API. 
 
 ## install AWX 
