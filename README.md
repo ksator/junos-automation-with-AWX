@@ -34,7 +34,7 @@ The steps are:
 - you can now consume your playbooks with AWX GUI and AWX API!
    - AWX GUI is http://<awx_ip_address>    
    - You can visit the AWX REST API with a web browser: http://<awx_ip_address>/api/v2/ 
-   - Execute the file [**run_awx_templates.py**](run_awx_templates.py) to consume your playbooks from AWX REST API. 
+   - Execute the file [**run_awx_template.py**](run_awx_template.py) to consume your playbooks from AWX REST API. 
 
 ## install AWX 
 
