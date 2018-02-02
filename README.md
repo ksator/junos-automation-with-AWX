@@ -58,7 +58,7 @@ cd junos-automation-with-AWX
 
 ## edit the file variables.yml
 
-The file [**variable.yml**](variable.yml) defines variables.  
+The file [**variables.yml**](variables.yml) defines variables.  
 Edit it to indicate details such as: 
 - The IP address of your AWX   
 - the git repository that has your playbooks
@@ -70,8 +70,9 @@ vi variable.yml
 ```
 
 ```
-# more variables.yml 
+$ more variables.yml 
 ---
+
 # awx ip @
 awx: 
  ip: 192.168.233.142
