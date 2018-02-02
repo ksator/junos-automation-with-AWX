@@ -292,7 +292,7 @@ there is a problem with that template
 ```
 
 ## Delete AWX templates 
-Run this command on your laptop:  
+Run this command on your laptop to delete all AWX templates:  
 ```
 # python delete_awx_templates.py 
 ```
