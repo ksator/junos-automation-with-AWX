@@ -4,7 +4,7 @@
 [**How to use this repo**](README.md#how-to-use-this-repo)    
 [**install AWX**](README.md#install-awx)  
 [**install the requirements to use Ansible modules for Junos**](README.md#install-the-requirements-to-use-ansible-modules-for-junos)  
-[**Add the Juniper.junos role**](README.md#add_the_juniperjunos_role)
+[**Add the Juniper.junos role**](README.md#add-the-juniperjunos-role)  
 [**install the requirements to use the python scripts hosted in this repository**](README.md#install-the-requirements-to-use-the-python-scripts-hosted-in-this-repository)   
 [**clone this repository**](README.md#clone-this-repository)  
 [**edit the file variables.yml**](README.md#edit-the-file-variablesyml)  
