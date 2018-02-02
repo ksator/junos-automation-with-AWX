@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ksator/junos-automation-with-AWX.svg?branch=master)](https://travis-ci.org/ksator/junos-automation-with-AWX) 
+
 ## Documentation structure
 [**About AWX**](README.md#about-awx)  
 [**About this repo**](README.md#about-this-repo)  
@@ -10,6 +12,7 @@
 [**edit the file variables.yml**](README.md#edit-the-file-variablesyml)  
 [**execute the script configure_awx.py**](README.md#execute-the-script-configure_awxpy)  
 [**How to delete awx templates**](README.md#how-to-delete-awx-templates)  
+[**Continuous integration with Travis CI**](README.md#continuous-integration-with-travis-ci)
 [**Looking for more Junos automation solutions**](README.md#looking-for-more-junos-automation-solutions)  
 
 ## About AWX
@@ -262,10 +265,19 @@ Run this command on your laptop:
 # python delete_awx_templates.py 
 ```
 
+## Continuous integration with Travis CI
+
+There is a github webhook with [**Travis CI**](https://travis-ci.org/ksator/junos-automation-with-AWX/)  
+The syntax of the python scripts in this repository is tested automatically by Travis CI.  
+The files [**.travis.yml**](.travis.yml) at the root of this repository are used for this.  
+
+Here's the last build status [![Build Status](https://travis-ci.org/ksator/junos-automation-with-AWX.svg?branch=master)](https://travis-ci.org/ksator/junos-automation-with-AWX) 
+
+
+
 ## Looking for more Junos automation solutions
 
 https://github.com/ksator?tab=repositories  
 https://gitlab.com/users/ksator/projects  
 https://gist.github.com/ksator/  
 
-##
