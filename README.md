@@ -59,7 +59,7 @@ The default credentials are admin/password.
 
 ## install the requirements to use Ansible modules for Junos  
 
-We need to install in the awx_task container the Ansible requirements to use the Ansible modules for Junos.  
+We need to install in the ```awx_task``` container the Ansible requirements to use the Ansible modules for Junos.  
 
 Connect to the container cli:
 ```
@@ -71,7 +71,22 @@ Once connected, run these commands from awx_task:
 yum install -y pip python-devel libxml2-devel libxslt-devel gcc openssl libffi-devel python-pip  
 pip install --upgrade pip
 pip install junos-eznc jxmlease
+```
+```
+# more ansible.cfg 
+[defaults]
+roles_path = /etc/ansible/roles:./
+```
+```
 ansible-galaxy install Juniper.junos,1.4.3
+```
+```
+# ansible-galaxy list
+- Juniper.junos, 1.4.3
+```
+```
+# ls /etc/ansible/roles/
+Juniper.junos
 ```
 
 Once complete, exit out of the container.
