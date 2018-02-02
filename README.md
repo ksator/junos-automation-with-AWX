@@ -3,11 +3,12 @@
 [**About this repo**](README.md#about-this-repo)  
 [**How to use this repo**](README.md#how-to-use-this-repo)    
 [**install AWX**](README.md#install-awx)  
-[**install the requirements to use Ansible modules for Junos**](README.md#install-the-requirements-to-use-ansible-modules-for-junos)  
-[**install the requirements to use the python scripts hosted in this repository**](README.md#install-the-requirements-to-use-the-python-scripts-hosted-in-this-repository)   
-[**clone this repository**](README.md#clone-this-repository)  
-[**edit the file variables.yml**](README.md#edit-the-file-variablesyml)  
-[**execute the script configure_awx_using_your_variables.py**](README.md#execute-the-script-configure_awx_using_your_variablespy)  
+[**install in AWX the requirements to use Ansible modules for Junos**](README.md#install-in-awx-the-requirements-to-use-ansible-modules-for-junos)  
+[**Add the Juniper.junos role to AWX**](README.md#add_the_juniperjunos_role_to_awx)
+[**On your laptop, install the requirements to use the python scripts hosted in this repository**](README.md#install-the-requirements-to-use-the-python-scripts-hosted-in-this-repository)   
+[**On your laptop, clone this repository**](README.md#clone-this-repository)  
+[**On your laptop, edit the file variables.yml**](README.md#edit-the-file-variablesyml)  
+[**On your laptop, execute the script configure_awx.py**](README.md#execute-the-script-configure_awxpy)  
 [**Looking for more Junos automation solutions**](README.md#looking-for-more-junos-automation-solutions)  
 
 ## About AWX
@@ -55,7 +56,7 @@ CONTAINER ID        IMAGE                     COMMAND                  CREATED  
 702d9538c538        rabbitmq:3                "docker-entrypoint.s…"   2 weeks ago         Up About a minute   4369/tcp, 5671-5672/tcp, 25672/tcp   rabbitmq
 7167f4a3748e        postgres:9.6              "docker-entrypoint.s…"   2 weeks ago         Up About a minute   5432/tcp                             postgres
 ```
-The default credentials are admin/password.  
+The default AWX credentials are admin/password.  
 
 ## install the requirements to use Ansible modules for Junos  
 
@@ -66,19 +67,34 @@ Connect to the container cli:
 docker exec -it awx_task bash  
 ```
 
-Once connected, run these commands from awx_task:
+Once connected, run these commands from awx_task to install the requirements:
 ```
 yum install -y pip python-devel libxml2-devel libxslt-devel gcc openssl libffi-devel python-pip  
 pip install --upgrade pip
 pip install junos-eznc jxmlease
 ```
+Once complete, exit out of the container.
+
+## Add the Juniper.junos role to AWX
+
+There are two modules librairies to interact with Junos.  
+These two sets of modules for Junos automation can coexist on the same Ansible control machine.  
+
+- An Ansible library for Junos built by Ansible
+  - Since Ansible version >= 2.1, Ansible natively includes [modules for Junos](http://docs.ansible.com/ansible/latest/list_of_network_modules.html#junos)
+  - These modules are shipped with Ansible
+- An Ansible library for Junos built by Juniper 
+  - These modules are available in the Juniper.junos role on [galaxy](https://galaxy.ansible.com/Juniper/junos/)
+  - These modules are not shipped with Ansible. 
+
+Run these commands from ```awx_task``` container to download and install the Juniper.junos role from [galaxy](https://galaxy.ansible.com/Juniper/junos/)
 ```
 # more ansible.cfg 
 [defaults]
 roles_path = /etc/ansible/roles:./
 ```
 ```
-ansible-galaxy install Juniper.junos,1.4.3
+# ansible-galaxy install Juniper.junos,1.4.3
 ```
 ```
 # ansible-galaxy list
@@ -88,6 +104,10 @@ ansible-galaxy install Juniper.junos,1.4.3
 # ls /etc/ansible/roles/
 Juniper.junos
 ```
+Here's the Juniper.junos role documentation: 
+- http://junos-ansible-modules.readthedocs.io/en/1.4.3/
+- http://junos-ansible-modules.readthedocs.io/en/2.0.1/
+
 
 Once complete, exit out of the container.
 
@@ -99,14 +119,14 @@ sudo -s
 pip install requests
 ```
 
-## clone this repository
+## On your laptop, clone this repository
 ```
 sudo -s
 git clone https://github.com/ksator/junos-automation-with-AWX.git
 cd junos-automation-with-AWX
 ```
 
-## edit the file variables.yml
+## On your laptop, edit the file variables.yml
 
 The file [**variables.yml**](variables.yml) defines variables.  
 Edit it to indicate details such as: 
@@ -181,7 +201,7 @@ playbooks:
 ```
 
 
-## execute the script configure_awx_using_your_variables.py
+## On your laptop, execute the script configure_awx.py
 
 The file [**configure_awx_using_your_variables.py**](configure_awx_using_your_variables.py) uses the details in the file [**variables.yml**](variables.yml) and creates: 
 - An AWX organization
