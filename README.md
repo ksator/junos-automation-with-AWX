@@ -11,8 +11,9 @@
 [**install the requirements to use the python scripts hosted in this repository**](README.md#install-the-requirements-to-use-the-python-scripts-hosted-in-this-repository)   
 [**clone this repository**](README.md#clone-this-repository)  
 [**edit the file variables.yml**](README.md#edit-the-file-variablesyml)  
-[**execute the script configure_awx.py**](README.md#execute-the-script-configure_awxpy)  
-[**How to delete awx templates**](README.md#how-to-delete-awx-templates)  
+[**configure AWX**](README.md#configure_awx)  
+[**consume AWX templates**](README.md#consume_awx_templates)
+[**Delete awx templates**](README.md#delete-awx-templates)  
 [**Continuous integration with Travis CI**](README.md#continuous-integration-with-travis-ci)  
 [**Looking for more Junos automation solutions**](README.md#looking-for-more-junos-automation-solutions)  
 
@@ -86,7 +87,6 @@ pip install junos-eznc jxmlease jsnapy
 ```
 Once complete, exit out of the container.
 ```
-# exit
 exit
 ```
 
@@ -125,7 +125,6 @@ Juniper.junos
 Once complete, exit out of the container.  
 ```
 # exit
-exit
 ```
 
 Here's the Juniper.junos role documentation: 
@@ -263,7 +262,36 @@ run_pb.check.ports.availability.yml template successfully created using the play
 http://<awx_ip_address>/api/v2/users/?username=ksator
 http://<awx_ip_address>/api/v2/job_templates/?name=run_pb.check.bgp.yml
 ```
-## How to delete AWX templates? 
+
+## consume AWX templates 
+
+The python script ```run_awx_templates.py``` makes REST calls to AWX to run an existing awx template.  
+Pass the template as an argument.   
+Run this command on your laptop to consume an existing awx template:  
+```
+# python run_awx_template.py run_pb.check.bgp.yml
+waiting for the job to complete ... 
+still waiting for the job to complete ...
+still waiting for the job to complete ...
+still waiting for the job to complete ...
+status is successful
+```
+```
+# python run_awx_template.py run_pb.check.lldp.yml
+waiting for the job to complete ... 
+still waiting for the job to complete ...
+still waiting for the job to complete ...
+still waiting for the job to complete ...
+still waiting for the job to complete ...
+still waiting for the job to complete ...
+status is successful
+```
+```
+# python run_awx_templates.py non_existing_awx_template_name
+there is a problem with that template
+```
+
+## delete AWX templates 
 Run this command on your laptop:  
 ```
 # python delete_awx_templates.py 
