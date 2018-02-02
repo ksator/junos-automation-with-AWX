@@ -37,7 +37,7 @@ def import_variables_from_file():
  # print my_variables_in_yaml
  # print my_variables_in_yaml['awx']['ip']
  my_variables_file.close()
-return my_variables_in_yaml
+ return my_variables_in_yaml
 
 
 
