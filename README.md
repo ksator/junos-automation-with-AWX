@@ -252,6 +252,11 @@ pb.check.all.yml template successfully created
 pb.check.ports.availability.yml template successfully created
 ```
 
+## How to delete AWX templates? 
+```
+# python delete_awx_templates.py 
+```
+
 ## Looking for more Junos automation solutions
 
 https://github.com/ksator?tab=repositories  
