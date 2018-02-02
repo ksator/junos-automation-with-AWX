@@ -133,7 +133,7 @@ playbooks:
 
 ## execute the script configure_awx_using_your_variables.py
 
-The file [**configure_awx_using_your_variables.py**](configure_awx_using_your_variables.py) uses the details in the file [**variables.yml**]variables.yml and creates: 
+The file [**configure_awx_using_your_variables.py**](configure_awx_using_your_variables.py) uses the details in the file [**variables.yml**](variables.yml) and creates: 
 - An AWX organization
 - An AWX team. The team belongs to the organization created above
 - An AWX user. The user belongs to the team created above
