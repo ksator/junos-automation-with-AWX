@@ -251,9 +251,11 @@ run_pb.rollback.yml template successfully created using the playbook pb.rollback
 run_pb.print.facts.yml template successfully created using the playbook pb.print.facts.yml
 run_pb.check.all.yml template successfully created using the playbook pb.check.all.yml
 run_pb.check.ports.availability.yml template successfully created using the playbook pb.check.ports.availability.yml
-
 ```
-
+```
+http://<awx_ip_address>/api/v2/users/?username=ksator
+http://<awx_ip_address>/api/v2/job_templates/?name=run_pb.check.bgp.yml
+```
 ## How to delete AWX templates? 
 Run this command on your laptop:  
 ```
