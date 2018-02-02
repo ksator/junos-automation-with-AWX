@@ -13,7 +13,7 @@ organization:
 team:
  name: "automation"
 
-# awx user you want to create. The below user belongs to the above team
+# awx user you want to create. The below user belongs to the above organization
 user: 
  username: "ksator"
  first_name: "khelil"
