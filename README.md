@@ -12,7 +12,6 @@
 [**Clone this repository**](README.md#clone-this-repository)  
 [**Define your variables**](README.md#define-your-variables)  
 [**Configure AWX with automation**](README.md#configure-awx-with-automation)  
-[**Verify the new AWX configuration using the GUI**](README.md#verify-the-new-awx-configuration-using-the-gui)  
 [**Consume AWX templates with automation**](README.md#consume-awx-templates-with-automation)  
 [**Delete AWX templates with automation**](README.md#delete-awx-templates-with-automation)  
 [**Continuous integration with Travis CI**](README.md#continuous-integration-with-travis-ci)  
@@ -301,7 +300,7 @@ run_pb.check.all.yml template successfully created using the playbook pb.check.a
 run_pb.check.ports.availability.yml template successfully created using the playbook pb.check.ports.availability.yml
 ```
 
-## Verify the new AWX configuration using the GUI
+Verify the new AWX configuration using the GUI
 
 ```
 http://<awx_ip_address>/api/v2/users/?username=ksator
@@ -345,6 +344,12 @@ status is successful
 # python run_awx_templates.py non_existing_awx_template_name
 there is a problem with that template
 ```
+
+Verify with the GUI
+![recent_job_runs.png](resources/recent_job_runs.png)  
+![job.png](resources/job.png)   
+![job.hosts](resources/hosts.png)  
+
 
 ## Delete AWX templates with automation
 Run this command on your laptop to delete all AWX templates:  
