@@ -8,7 +8,7 @@
 [**Install AWX**](README.md#install-awx)  
 [**Install the requirements to use Ansible modules for Junos**](README.md#install-the-requirements-to-use-ansible-modules-for-junos)  
 [**Add the Juniper.junos role**](README.md#add-the-juniperjunos-role)  
-[**Install the requirements to use the python scripts hosted in this repository**](README.md#install-the-requirements-to-use-the-python-scripts-hosted-in-this-repository)   
+[**Install the requirements to use the automation content hosted in this repository**](README.md#install-the-requirements-to-use-the-automation-content-hosted-in-this-repository)   
 [**Clone this repository**](README.md#clone-this-repository)  
 [**Define your variables**](README.md#define-your-variables)  
 [**Configure AWX with automation**](README.md#configure-awx-with-automation)  
@@ -174,7 +174,7 @@ Here's the Juniper.junos role documentation:
 - http://junos-ansible-modules.readthedocs.io/
 
 
-## install the requirements to use the python scripts hosted in this repository  
+## install the requirements to use the automation content hosted in this repository  
 The python scripts  hosted in this repository use the library **requests** to makes REST calls to AWX.   
 Run these commands on your laptop:
 ```
