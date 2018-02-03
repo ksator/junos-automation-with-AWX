@@ -12,6 +12,7 @@
 [**Clone this repository**](README.md#clone-this-repository)  
 [**Define your variables**](README.md#define-your-variables)  
 [**Configure AWX with automation**](README.md#configure-awx-with-automation)  
+[**Verify the new AWX configuration using the GUI**](README.md#verify-the-new-AWX-configuration-using-the-GUI)  
 [**Consume AWX templates with automation**](README.md#consume-awx-templates-with-automation)  
 [**Delete AWX templates with automation**](README.md#delete-awx-templates-with-automation)  
 [**Continuous integration with Travis CI**](README.md#continuous-integration-with-travis-ci)  
@@ -302,6 +303,11 @@ run_pb.check.ports.availability.yml template successfully created using the play
 http://<awx_ip_address>/api/v2/users/?username=ksator
 http://<awx_ip_address>/api/v2/job_templates/?name=run_pb.check.bgp.yml
 ```
+
+## Verify the new AWX configuration using the GUI
+
+![organization.png](resources/organization.png)  
+
 
 ## Consume AWX templates with automation
 
