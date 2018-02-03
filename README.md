@@ -306,12 +306,15 @@ http://<awx_ip_address>/api/v2/job_templates/?name=run_pb.check.bgp.yml
 
 ## Verify the new AWX configuration using the GUI
 
-![organizations.png](resources/organizations.png)  
-
-![credentials.png](resources/credentials.png)  
-
-
-
+![organizations.png](resources/organizations.png)    
+![teams.png](resources/teams.png)  
+![users.png](resources/users.png)   
+![credentials.png](resources/credentials.png)   
+![inventories.png](resources/inventories.png)    
+![projects.png](resources/projects.png)   
+![project.png](resources/project.png)    
+![templates.png](resources/templates.png)   
+![template.png](resources/template.png)    
 
 ## Consume AWX templates with automation
 
