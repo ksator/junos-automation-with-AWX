@@ -105,11 +105,10 @@ AWX natively includes [**modules for Junos**](http://docs.ansible.com/ansible/la
 
 We need to install in the ```awx_task``` container the requirements to use the Ansible modules for Junos.  
 
-Connect to the container cli:
+From the server that hosts the AWX containers, run this command to connect to the ```awx_task``` container cli:
 ```
 docker exec -it awx_task bash  
 ```
-
 Once connected, run these commands from the awx_task container to install the requirements:
 ```
 yum install -y pip python-devel libxml2-devel libxslt-devel gcc openssl libffi-devel python-pip  
@@ -118,6 +117,18 @@ pip install junos-eznc jxmlease jsnapy
 ```
 Once complete, exit out of the container.
 ```
+exit
+```
+
+
+Alternatively, you can run this command on the server that hosts the AWX containers to install jsnapy jxmlease junos-eznc in ```awx_task```: 
+```
+docker exec -it awx_task pip install jsnapy jxmlease junos-eznc
+```   
+This is the equivalent of running this:
+```
+docker exec -it awx_task bash  
+pip install junos-eznc jxmlease jsnapy
 exit
 ```
 
