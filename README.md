@@ -66,6 +66,37 @@ CONTAINER ID        IMAGE                     COMMAND                  CREATED  
 702d9538c538        rabbitmq:3                "docker-entrypoint.s…"   2 weeks ago         Up About a minute   4369/tcp, 5671-5672/tcp, 25672/tcp   rabbitmq
 7167f4a3748e        postgres:9.6              "docker-entrypoint.s…"   2 weeks ago         Up About a minute   5432/tcp                             postgres
 ```
+
+```
+$ docker stop awx_task awx_web memcached rabbitmq postgres
+awx_task
+awx_web
+memcached
+rabbitmq
+postgres
+```
+```
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+```
+```
+$ docker start memcached rabbitmq postgres awx_web awx_task 
+memcached
+rabbitmq
+postgres
+awx_web
+awx_task
+```
+```
+$ docker ps
+CONTAINER ID        IMAGE                     COMMAND                  CREATED             STATUS              PORTS                                NAMES
+5f506acf7a9a        ansible/awx_task:latest   "/tini -- /bin/sh -c…"   2 weeks ago         Up 1 second         8052/tcp                             awx_task
+89d2b50cd396        ansible/awx_web:latest    "/tini -- /bin/sh -c…"   2 weeks ago         Up 1 second         0.0.0.0:80->8052/tcp                 awx_web
+6677b05c3dd8        memcached:alpine          "docker-entrypoint.s…"   2 weeks ago         Up 3 seconds        11211/tcp                            memcached
+702d9538c538        rabbitmq:3                "docker-entrypoint.s…"   2 weeks ago         Up 2 seconds        4369/tcp, 5671-5672/tcp, 25672/tcp   rabbitmq
+7167f4a3748e        postgres:9.6              "docker-entrypoint.s…"   2 weeks ago         Up 2 seconds        5432/tcp                             postgres
+```
+
 The default AWX credentials are admin/password.  
 
 ## install the requirements to use Ansible modules for Junos  
