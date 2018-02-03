@@ -66,7 +66,7 @@ CONTAINER ID        IMAGE                     COMMAND                  CREATED  
 702d9538c538        rabbitmq:3                "docker-entrypoint.s…"   2 weeks ago         Up About a minute   4369/tcp, 5671-5672/tcp, 25672/tcp   rabbitmq
 7167f4a3748e        postgres:9.6              "docker-entrypoint.s…"   2 weeks ago         Up About a minute   5432/tcp                             postgres
 ```
-
+You can start/stop AWX using these commands: 
 ```
 $ docker stop awx_task awx_web memcached rabbitmq postgres
 awx_task
