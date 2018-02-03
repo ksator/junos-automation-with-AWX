@@ -300,12 +300,13 @@ run_pb.check.all.yml template successfully created using the playbook pb.check.a
 run_pb.check.ports.availability.yml template successfully created using the playbook pb.check.ports.availability.yml
 ```
 
-Verify the new AWX configuration using the GUI
-
+Verify the new AWX configuration using the API  
 ```
 http://<awx_ip_address>/api/v2/users/?username=ksator
 http://<awx_ip_address>/api/v2/job_templates/?name=run_pb.check.bgp.yml
 ```
+
+Verify the new AWX configuration using the GUI  
 
 ![organizations.png](resources/organizations.png)    
 ![teams.png](resources/teams.png)  
@@ -345,7 +346,7 @@ status is successful
 there is a problem with that template
 ```
 
-Verify with the GUI
+Verify with the GUI  
 ![recent_job_runs.png](resources/recent_job_runs.png)  
 ![job.png](resources/job.png)   
 ![job.hosts](resources/hosts.png)  
