@@ -11,9 +11,9 @@
 [**Install the requirements to use the python scripts hosted in this repository**](README.md#install-the-requirements-to-use-the-python-scripts-hosted-in-this-repository)   
 [**Clone this repository**](README.md#clone-this-repository)  
 [**Define your variables**](README.md#define-your-variables)  
-[**Configure AWX**](README.md#configure-awx)  
-[**Consume AWX templates**](README.md#consume-awx-templates)  
-[**Delete AWX templates**](README.md#delete-awx-templates)  
+[**Configure AWX with automation**](README.md#configure-awx-with-automation)  
+[**Consume AWX templates with automation**](README.md#consume-awx-templates-with-automation)  
+[**Delete AWX templates with automation**](README.md#delete-awx-templates-with-automation)  
 [**Continuous integration with Travis CI**](README.md#continuous-integration-with-travis-ci)  
 [**Looking for more Junos automation solutions**](README.md#looking-for-more-junos-automation-solutions)  
 
@@ -252,7 +252,7 @@ playbooks:
 ```
 
 
-## Configure AWX
+## Configure AWX with automation
 
 The file [**configure_awx.py**](configure_awx.py) uses the details in the file [**variables.yml**](variables.yml) and creates: 
 - An AWX organization
@@ -291,7 +291,7 @@ http://<awx_ip_address>/api/v2/users/?username=ksator
 http://<awx_ip_address>/api/v2/job_templates/?name=run_pb.check.bgp.yml
 ```
 
-## Consume AWX templates 
+## Consume AWX templates with automation
 
 The python script ```run_awx_templates.py``` makes REST calls to AWX to run an existing awx template.  
 Pass the template name as an argument.   
@@ -319,7 +319,7 @@ status is successful
 there is a problem with that template
 ```
 
-## Delete AWX templates 
+## Delete AWX templates with automation
 Run this command on your laptop to delete all AWX templates:  
 ```
 # python delete_awx_templates.py 
