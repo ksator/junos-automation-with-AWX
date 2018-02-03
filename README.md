@@ -302,6 +302,8 @@ run_pb.check.ports.availability.yml template successfully created using the play
 
 Verify the new AWX configuration using the API  
 ```
+http://<awx_ip_address>/api/v2/
+http://<awx_ip_address>/api/v2/projects
 http://<awx_ip_address>/api/v2/users/?username=ksator
 http://<awx_ip_address>/api/v2/job_templates/?name=run_pb.check.bgp.yml
 ```
