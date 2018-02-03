@@ -308,6 +308,10 @@ http://<awx_ip_address>/api/v2/job_templates/?name=run_pb.check.bgp.yml
 
 ![organizations.png](resources/organizations.png)  
 
+![credentials.png](resources/credentials.png)  
+
+
+
 
 ## Consume AWX templates with automation
 
