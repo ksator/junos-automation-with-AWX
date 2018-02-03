@@ -300,12 +300,13 @@ run_pb.print.facts.yml template successfully created using the playbook pb.print
 run_pb.check.all.yml template successfully created using the playbook pb.check.all.yml
 run_pb.check.ports.availability.yml template successfully created using the playbook pb.check.ports.availability.yml
 ```
+
+## Verify the new AWX configuration using the GUI
+
 ```
 http://<awx_ip_address>/api/v2/users/?username=ksator
 http://<awx_ip_address>/api/v2/job_templates/?name=run_pb.check.bgp.yml
 ```
-
-## Verify the new AWX configuration using the GUI
 
 ![organizations.png](resources/organizations.png)    
 ![teams.png](resources/teams.png)  
