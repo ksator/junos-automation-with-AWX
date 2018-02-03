@@ -121,7 +121,7 @@ exit
 ```
 
 
-Alternatively, you can run this command on the server that hosts the AWX containers to install jsnapy jxmlease junos-eznc in ```awx_task```: 
+Alternatively, you can run this command on the server that hosts the AWX containers to install jsnapy jxmlease junos-eznc in awx_task container: 
 ```
 docker exec -it awx_task pip install jsnapy jxmlease junos-eznc
 ```   
