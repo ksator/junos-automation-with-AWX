@@ -5,7 +5,7 @@
 [**About AWX**](README.md#about-awx)  
 [**About this repo**](README.md#about-this-repo)  
 [**How to use this repo**](README.md#how-to-use-this-repo)    
-[**Install AWX**](README.md#install-awx)  
+[**AWX Installation**](README.md#awx-installation)  
 [**Install the requirements to use Ansible modules for Junos**](README.md#install-the-requirements-to-use-ansible-modules-for-junos)  
 [**Add the Juniper.junos role**](README.md#add-the-juniperjunos-role)  
 [**Install the requirements to use the automation content hosted in this repository**](README.md#install-the-requirements-to-use-the-automation-content-hosted-in-this-repository)   
@@ -51,8 +51,9 @@ The steps are:
    - You can visit the AWX REST API with a web browser: ```http://<awx_ip_address>/api/v2/``` 
    - Execute the file [**run_awx_template.py**](run_awx_template.py) to consume your playbooks from AWX REST API. 
 
-## install AWX 
+## AWX installation 
 
+This repository doesnt install AWX. You still need to install AWX yourself.  
 Here's the [**install guide**](https://github.com/ansible/awx/blob/devel/INSTALL.md)  
 Note: By default, AWX database is lost with reboots. You can change this behavior when you install AWX if you prefer AWX to keep its database after system restarts.  
 I am running AWX as a containerized application.  
