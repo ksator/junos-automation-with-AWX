@@ -275,6 +275,7 @@ The file [**configure_awx.py**](configure_awx.py) uses the details in the file [
 - An AWX project. The project belongs to the organization created above. The project uses playbooks from a git repository.
 - An AWX inventory. it belongs to the organization created above
 - An equivalent AWX template for each playbook from the git repository  
+
 Run this command on your laptop:
 
 ```
