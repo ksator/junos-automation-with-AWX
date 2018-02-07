@@ -56,7 +56,7 @@ The steps are:
 
 This repository doesnt install AWX. You still need to install AWX yourself.  
 Here's the [**install guide**](https://github.com/ansible/awx/blob/devel/INSTALL.md)  
-By default, AWX pulls the latest tag from docker hub. You can enforce the AWX version to another tag. You need to do this change before installing the AWX 
+By default, AWX pulls the latest tag from docker hub. Here's how to use another tag. You need to do this before installing the AWX 
 ```
 $ nano awx/installer/inventory 
 ```
