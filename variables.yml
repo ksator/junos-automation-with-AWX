@@ -3,7 +3,9 @@
 
 # awx ip @
 awx: 
- ip: 192.168.233.144
+# ip: 172.25.90.196
+  ip: 192.168.233.144 
+
 
 # awx organization you want to create
 organization: 

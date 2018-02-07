@@ -219,6 +219,7 @@ def add_inventory_source():
 def add_templates():
  url = url_base + '/api/v2/job_templates/'
  for item in my_variables_in_yaml['playbooks']:
+  time.sleep(1)
   payload = {
    'name': "run_" + item,
    'description': "template to execute " + item + " playbook",
@@ -254,20 +255,31 @@ headers = { 'content-type' : 'application/json' }
 url_base = 'http://' + my_variables_in_yaml['awx']['ip']
 # print url_base
 create_the_organization()
+time.sleep(2)
 organization_id = get_the_id_of_the_organization()
+time.sleep(2)
 create_the_team()
+time.sleep(2)
 team_id = get_the_team_id()
+time.sleep(2)
 add_the_user_to_the_organization()
 # add_the_user_to_the_team()
+time.sleep(2)
 add_the_project_to_the_organization()
+time.sleep(2)
 project_id = get_the_project_id()
+time.sleep(2)
 add_credentials()
+time.sleep(2)
 credential_id = get_the_credential_id()
+time.sleep(2)
 add_inventory()
+time.sleep(2)
 inventory_id = get_the_inventory_id()
+time.sleep(2)
 add_inventory_source()
-print 'wait 20 seconds before to resume'
-time.sleep(20)
+print 'wait 15 seconds before to resume'
+time.sleep(15)
 add_templates()
 
 
