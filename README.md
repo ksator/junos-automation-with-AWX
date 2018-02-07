@@ -14,6 +14,7 @@
 [**Configure AWX with automation**](README.md#configure-awx-with-automation)  
 [**Consume AWX templates with automation**](README.md#consume-awx-templates-with-automation)  
 [**Delete AWX templates with automation**](README.md#delete-awx-templates-with-automation)  
+[**AWX CLI**](README.md#awx-cli)
 [**Continuous integration with Travis CI**](README.md#continuous-integration-with-travis-ci)  
 [**Looking for more Junos automation solutions**](README.md#looking-for-more-junos-automation-solutions)  
 
@@ -361,6 +362,147 @@ Run this command on your laptop to delete all AWX templates:
 ```
 
 Note: By default, AWX database is lost with reboots. You can change this behavior when you install AWX if you prefer AWX to keep its database after system restarts.  
+
+## AWX CLI
+```
+# pip install ansible-tower-cli
+```
+```
+
+# tower-cli config
+
+# Defaults.
+username: 
+use_token: False
+verbose: False
+certificate: 
+format: human
+color: True
+host: 127.0.0.1
+description_on: False
+verify_ssl: True
+password: 
+```
+```
+# tower-cli config username admin
+Configuration updated successfully.
+```
+```
+# tower-cli config password password
+Configuration updated successfully.
+```
+```
+# tower-cli config host http://localhost:80
+Configuration updated successfully.
+```
+```
+# tower-cli config verify_ssl false
+Configuration updated successfully.
+```
+
+```
+# tower-cli config
+
+# User options (set with `tower-cli config`; stored in ~/.tower_cli.cfg).
+username: admin
+password: password
+host: http://localhost:80
+verify_ssl: False
+
+# Defaults.
+use_token: False
+verbose: False
+certificate: 
+format: human
+color: True
+description_on: False
+```
+
+```
+# tower-cli credential list
+== =============== =============== 
+id      name       credential_type 
+== =============== =============== 
+ 1 Demo Credential               1
+== =============== =============== 
+```
+```
+# tower-cli organization list
+== ======= 
+id  name   
+== ======= 
+ 1 Default
+ 2 Juniper
+== ======= 
+```
+```
+# tower-cli organization --help
+Usage: tower-cli organization [OPTIONS] COMMAND [ARGS]...
+
+  Manage organizations within Ansible Tower.
+
+Options:
+  --help  Show this message and exit.
+
+Commands:
+  associate           Associate a user with this organization.
+  associate_admin     Associate an admin with this organization.
+  associate_ig        Associate an ig with this organization.
+  copy                Copy an organization.
+  create              Create an organization.
+  delete              Remove the given organization.
+  disassociate        Disassociate a user with this organization.
+  disassociate_admin  Disassociate an admin with this organization.
+  disassociate_ig     Disassociate an ig with this organization.
+  get                 Return one and exactly one organization.
+  list                Return a list of organizations.
+  modify              Modify an already existing organization.
+```
+```
+# tower-cli organization delete --help
+Usage: tower-cli organization delete [OPTIONS] [ID]
+
+  Remove the given organization.
+
+  If --fail-on-missing is True, then the organization's not being found is
+  considered a failure; otherwise, a success with no change is reported.
+
+Field Options:
+  -n, --name TEXT         [REQUIRED] The name field.
+  -d, --description TEXT  The description field.
+
+Global Options:
+  --use-token                     Turn on Tower's token-based authentication.
+                                  Set config use_token to make this permanent.
+  --certificate TEXT              Path to a custom certificate file that will
+                                  be used throughout the command. Overwritten
+                                  by --insecure flag if set.
+  --insecure                      Turn off insecure connection warnings. Set
+                                  config verify_ssl to make this permanent.
+  --description-on                Show description in human-formatted output.
+  -v, --verbose                   Show information about requests being made.
+  -f, --format [human|json|yaml|id]
+                                  Output format. The "human" format is
+                                  intended for humans reading output on the
+                                  CLI; the "json" and "yaml" formats provide
+                                  more data, and "id" echos the object id
+                                  only.
+  -p, --tower-password TEXT       Password to use to authenticate to Ansible
+                                  Tower. This will take precedence over a
+                                  password provided to `tower config`, if any.
+  -u, --tower-username TEXT       Username to use to authenticate to Ansible
+                                  Tower. This will take precedence over a
+                                  username provided to `tower config`, if any.
+  -h, --tower-host TEXT           The location of the Ansible Tower host.
+                                  HTTPS is assumed as the protocol unless
+                                  "http://" is explicitly provided. This will
+                                  take precedence over a host provided to
+                                  `tower config`, if any.
+
+Other Options:
+  --help  Show this message and exit.
+```
+
 
 ## Continuous integration with Travis CI
 
