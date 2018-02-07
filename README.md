@@ -101,6 +101,15 @@ CONTAINER ID        IMAGE                     COMMAND                  CREATED  
 
 The default AWX credentials are admin/password.  
 
+Enforce the AWX version to something else then ```latest```
+```
+$ nano awx/installer/inventory 
+```
+```
+$ more awx/installer/inventory | grep dockerhub_version
+dockerhub_version=1.0.1
+```
+
 ## install the requirements to use Ansible modules for Junos  
 
 AWX natively includes [**modules for Junos**](http://docs.ansible.com/ansible/latest/list_of_network_modules.html#junos)
