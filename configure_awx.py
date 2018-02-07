@@ -130,7 +130,7 @@ def add_the_project_to_the_organization():
  if rest_call.status_code == 201:
       print my_variables_in_yaml['project']['name'] + ' project successfully created and added to the ' + my_variables_in_yaml['organization']['name'] + ' organization'
  else:
-      print 'failed to create the user ' + my_variables_in_yaml['project']['name'] + ' in the organization ' + my_variables_in_yaml['organization']['name']
+      print 'failed to create the project ' + my_variables_in_yaml['project']['name'] + ' in the organization ' + my_variables_in_yaml['organization']['name']
 
 
 def get_the_project_id(): 
