@@ -14,7 +14,7 @@
 [**Configure AWX with automation**](README.md#configure-awx-with-automation)  
 [**Consume AWX templates with automation**](README.md#consume-awx-templates-with-automation)  
 [**Delete AWX templates with automation**](README.md#delete-awx-templates-with-automation)  
-[**AWX CLI**](README.md#awx-cli)
+[**AWX CLI**](README.md#awx-cli)  
 [**Continuous integration with Travis CI**](README.md#continuous-integration-with-travis-ci)  
 [**Looking for more Junos automation solutions**](README.md#looking-for-more-junos-automation-solutions)  
 
