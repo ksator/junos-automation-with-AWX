@@ -57,6 +57,7 @@ The steps are:
 This repository doesnt install AWX. You still need to install AWX yourself.  
 Here's the [**install guide**](https://github.com/ansible/awx/blob/devel/INSTALL.md)  
 I am running AWX as a containerized application.  
+
 By default, AWX pulls the latest tag from docker hub.  
 Here's how to use another tag. You need to do this before installing the AWX 
 ```
@@ -66,7 +67,9 @@ $ nano awx/installer/inventory
 $ more awx/installer/inventory | grep dockerhub_version
 dockerhub_version=1.0.1
 ```
+
 By default, AWX database is lost with reboots. You can change this behavior when you install AWX if you prefer AWX to keep its database after system restarts.  
+
 Issue the ```docker ps``` command to see what containers are running.  
 ```
 # docker ps
