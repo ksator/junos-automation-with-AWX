@@ -377,11 +377,14 @@ Run this command on your laptop to delete all AWX templates:
 Note: By default, AWX database is lost with reboots. You can change this behavior when you install AWX if you prefer AWX to keep its database after system restarts.  
 
 ## AWX CLI
+
+#### Install the CLI
 ```
 # pip install ansible-tower-cli
 ```
-```
+#### Get the CLI configuration
 
+```
 # tower-cli config
 
 # Defaults.
@@ -396,6 +399,8 @@ description_on: False
 verify_ssl: True
 password: 
 ```
+#### Configure the CLI
+
 ```
 # tower-cli config username admin
 Configuration updated successfully.
@@ -430,6 +435,7 @@ format: human
 color: True
 description_on: False
 ```
+#### Use the CLI
 
 ```
 # tower-cli credential list
