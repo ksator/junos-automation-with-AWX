@@ -533,7 +533,7 @@ Here's the last build status [![Build Status](https://travis-ci.org/ksator/junos
 
 
 
-## Looking for more Junos automation solutions
+## Looking for more automation solutions
 
 https://github.com/ksator?tab=repositories  
 https://gitlab.com/users/ksator/projects  
