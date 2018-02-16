@@ -31,11 +31,15 @@ Here's the [**AWX REST API guide**](http://docs.ansible.com/ansible-tower/2.3.0/
 
 ## About this repo  
 
-This repository uses Python scripts and YAML variables: 
-- This repository has automation content that configures an existing AWX setup. If you want to consume Ansible playbooks using AWX, you can use this repository to quickly add these playbooks to AWX.  
-- This repository has automation content that consumes AWX: you can use this repository to execute playbooks with REST calls.    
+This repository provides the instructions to add the AWX requirements for Junos automation.  
+ - This repository doesnt install AWX. You still need to install AWX yourself. 
+ 
+This repository has automation content to:
+- configure an existing AWX setup 
+    - If you want to consume Ansible content using AWX, you can use this repository to quickly add it to AWX.  
+- to consumes AWX
+    - you can use this repository to execute playbooks with REST calls.    
 
-This repository doesnt install AWX. You still need to install AWX yourself. 
 
 ## How to use this repo 
 
