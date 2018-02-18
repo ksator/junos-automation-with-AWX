@@ -32,19 +32,19 @@ Here's the [**AWX REST API guide**](http://docs.ansible.com/ansible-tower/2.3.0/
 ## About this repo  
 
 This repository provides the instructions to add the AWX requirements for Junos automation.  
- - This repository doesnt install AWX. You still need to install AWX yourself. 
+ - This repository doesn’t install AWX. You still need to install AWX yourself. 
  
 This repository has automation content to:
 - configure an existing AWX setup 
     - If you want to consume Ansible content using AWX, you can use this repository to quickly add it to AWX.  
-- to consumes AWX
+- to consume AWX
     - you can use this repository to execute playbooks with REST calls.    
 
 
 ## How to use this repo 
 
 The steps are:  
-- Install AWX. This repository doesnt install AWX. You still need to install AWX yourself.  
+- Install AWX. This repository doesn’t install AWX. You still need to install AWX yourself.  
 - Install the requirements to use Ansible modules for Junos  
 - Add the Juniper.junos role from Galaxy to AWX
 - Install the requirements to use the python scripts hosted in this repository  
@@ -58,7 +58,7 @@ The steps are:
 
 ## AWX installation 
 
-This repository doesnt install AWX. You still need to install AWX yourself.  
+This repository doesn’t install AWX. You still need to install AWX yourself.  
 Here's the [**install guide**](https://github.com/ansible/awx/blob/devel/INSTALL.md)  
 I am running AWX as a containerized application.  
 
@@ -122,7 +122,8 @@ The default AWX credentials are admin/password.
 
 AWX natively includes [**modules for Junos**](http://docs.ansible.com/ansible/latest/list_of_network_modules.html#junos)
 
-We need to install in the ```awx_task``` container the requirements to use the Ansible modules for Junos.  
+We need to install the requirements to use the Ansible modules for Junos in the ```awx_task``` container.
+
 
 From the server that hosts the AWX containers, run this command to connect to the ```awx_task``` container cli:
 ```
@@ -134,7 +135,7 @@ yum install -y pip python-devel libxml2-devel libxslt-devel gcc openssl libffi-d
 pip install --upgrade pip
 pip install junos-eznc jxmlease jsnapy
 ```
-Once complete, exit out of the container.
+Once complete, exit the container.
 ```
 exit
 ```
@@ -183,7 +184,7 @@ roles_path = /etc/ansible/roles:./
 # ls /etc/ansible/roles/
 Juniper.junos
 ```
-Once complete, exit out of the container.  
+Once complete, exit the container.  
 ```
 # exit
 ```
@@ -194,7 +195,7 @@ Here's the Juniper.junos role documentation:
 
 
 ## install the requirements to use the automation content hosted in this repository  
-The python scripts  hosted in this repository use the library **requests** to makes REST calls to AWX.   
+The python scripts hosted in this repository use the library **requests** to makes REST calls to AWX.   
 Run these commands on your laptop:
 ```
 sudo -s
@@ -217,7 +218,7 @@ On your laptop, edit it to indicate details such as:
 - the git repository that has your playbooks
 - the list of playbooks from your git repository you want to add to AWX
 - the Junos devices credentials
-- and some additionnal details
+- and some additional details
 
 Run these commands on your laptop:
 ```
@@ -251,7 +252,7 @@ project:
  name: "Junos automation"
  git_url: "https://github.com/ksator/lab_management.git"
 
-# credentials for AWX to connect to junos devices. The below credentials belongs to the above organization
+# credentials for AWX to connect to junos devices. The below credentials belong to the above organization
 credentials: 
  name: "junos"
  username: "lab"
@@ -288,7 +289,7 @@ The file [**configure_awx.py**](configure_awx.py) uses the details in the file [
 - An AWX organization
 - An AWX team. The team belongs to the organization created above
 - An AWX user. The user belongs to the organization created above
-- Credentials for AWX to connect to junos devices. These credentials belongs to the organization created above
+- Credentials for AWX to connect to junos devices. These credentials belong to the organization created above
 - An AWX project. The project belongs to the organization created above. The project uses playbooks from a git repository.
 - An AWX inventory. it belongs to the organization created above
 - An equivalent AWX template for each playbook from the git repository  
