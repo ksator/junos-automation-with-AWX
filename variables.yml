@@ -27,7 +27,7 @@ project:
  name: "Junos automation"
  git_url: "https://github.com/ksator/lab_management.git"
 
-# credentials for AWX to connect to junos devices. The below credentials belongs to the above organization
+# credentials for AWX to connect to junos devices. The below credentials belong to the above organization
 credentials: 
  name: "junos"
  username: "lab"
