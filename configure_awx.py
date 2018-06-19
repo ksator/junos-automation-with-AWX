@@ -278,8 +278,8 @@ time.sleep(2)
 inventory_id = get_the_inventory_id()
 time.sleep(2)
 add_inventory_source()
-print 'wait 15 seconds before to resume'
-time.sleep(15)
+print 'wait 30 seconds before to resume'
+time.sleep(30)
 add_templates()
 
 
