@@ -30,8 +30,8 @@ project:
 # credentials for AWX to connect to junos devices. The below credentials belong to the above organization
 credentials: 
  name: "junos"
- username: "lab"
- password: "jnpr123"
+ username: "device_username"
+ password: "device_password"
 
 # awx inventory you want to create. 
 # indicate which file you want to use as source of the AWX inventory. 
